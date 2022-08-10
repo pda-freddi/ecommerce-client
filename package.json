@@ -2,6 +2,17 @@
   "name": "ecommerce-client",
   "version": "0.1.0",
   "private": true,
+  "description": "Educational front-end project of a user interface for an e-commerce web application",
+  "main": "src/index.js",
+  "author": "Pedro Freddi <pdafreddi@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pedro-Freddi/ecommerce-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Pedro-Freddi/ecommerce-client/issues"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
     "@testing-library/jest-dom": "^5.16.5",
