@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "description": "Educational front-end project of a user interface for an e-commerce web application",
-  "main": "src/index.js",
   "author": "Pedro Freddi <pdafreddi@gmail.com>",
   "license": "MIT",
   "repository": {
