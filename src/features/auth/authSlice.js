@@ -64,8 +64,10 @@ const authSlice = createSlice({
         state.isAuthenticated = true;
         state.error = action.payload;
       })
-      .addCase("customer/delete/fulfilled", (state) => {
+      .addCase("customer/deleteCustomer/fulfilled", (state) => {
+        state.status = "idle";
         state.isAuthenticated = false;
+        state.error = null;
       })
   }
 });

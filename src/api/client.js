@@ -29,7 +29,7 @@ export const client = {
           headers: {
             "Content-type": "application/json"
           },
-          body: JSON.stringify(payload ? payload : "")
+          body: payload ? JSON.stringify(payload) : null
         });
       if (!response.ok) {
         const error = await response.json();
@@ -54,7 +54,7 @@ export const client = {
           headers: {
             "Content-type": "application/json"
           },
-          body: JSON.stringify(payload ? payload : "")
+          body: payload ? JSON.stringify(payload) : null
         });
       if (!response.ok) {
         const error = await response.json();
@@ -79,7 +79,7 @@ export const client = {
           headers: {
             "Content-type": "application/json"
           },
-          body: JSON.stringify(payload ? payload : "")
+          body: payload ? JSON.stringify(payload) : null
         });
       if (!response.ok) {
         const error = await response.json();

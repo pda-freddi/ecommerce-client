@@ -1,13 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { client } from "../../api/client.js";
 
-const getCustomerInfo = createAsyncThunk(
-  "customer/getInfo",
+const getOrders = createAsyncThunk(
+  "orders/getOrders",
   async (_, { getState, rejectWithValue }) => {
     if (!getState().auth.isAuthenticated) {
       return rejectWithValue("Authentication required.");
     }
-    const response = await client.get("/customer");
+    const response = await client.get("/order");
     if (response.error) {
       return rejectWithValue(response.data);
     }
@@ -15,13 +15,13 @@ const getCustomerInfo = createAsyncThunk(
   }
 );
 
-const updateCustomerInfo = createAsyncThunk(
-  "customer/updateInfo",
+const createOrder = createAsyncThunk(
+  "orders/createOrder",
   async (payload, { getState, rejectWithValue }) => {
     if (!getState().auth.isAuthenticated) {
       return rejectWithValue("Authentication required.");
     }
-    const response = await client.put("/customer", payload);
+    const response = await client.post("/order", payload, true);
     if (response.error) {
       return rejectWithValue(response.data);
     }
@@ -29,13 +29,13 @@ const updateCustomerInfo = createAsyncThunk(
   }
 );
 
-const deleteCustomer = createAsyncThunk(
-  "customer/deleteCustomer",
-  async (_, { getState, rejectWithValue }) => {
+const deleteOrder = createAsyncThunk(
+  "orders/deleteOrder",
+  async (orderId, { getState, rejectWithValue }) => {
     if (!getState().auth.isAuthenticated) {
       return rejectWithValue("Authentication required.");
     }
-    const response = await client.delete("/customer");
+    const response = await client.delete(`/order/${orderId}`);
     if (response.error) {
       return rejectWithValue(response.data);
     }
@@ -45,63 +45,67 @@ const deleteCustomer = createAsyncThunk(
 
 const initialState = {
   status: "idle",
-  customer: null,
+  orders: null,
   error: null
 };
 
-const customerSlice = createSlice({
-  name: "customer",
+const ordersSlice = createSlice({
+  name: "orders",
   initialState,
   extraReducers: (builder) => {
     builder
-      .addCase(getCustomerInfo.pending, (state) => {
+      .addCase(getOrders.pending, (state) => {
         state.status = "loading";
-        state.customer = null;
+        state.orders = null;
         state.error = null;
       })
-      .addCase(getCustomerInfo.fulfilled, (state, action) => {
+      .addCase(getOrders.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.customer = action.payload;
+        state.orders = action.payload;
         state.error = null;
       })
-      .addCase(getCustomerInfo.rejected, (state, action) => {
+      .addCase(getOrders.rejected, (state, action) => {
         state.status = "failed";
-        state.customer = null;
+        state.orders = null;
         state.error = action.payload;
       })
-      .addCase(updateCustomerInfo.pending, (state) => {
+      .addCase(createOrder.pending, (state) => {
         state.status = "loading";
         state.error = null;
       })
-      .addCase(updateCustomerInfo.fulfilled, (state) => {
+      .addCase(createOrder.fulfilled, (state) => {
         state.status = "succeeded";
         state.error = null;
       })
-      .addCase(updateCustomerInfo.rejected, (state, action) => {
+      .addCase(createOrder.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.payload;
       })
-      .addCase(deleteCustomer.pending, (state) => {
+      .addCase(deleteOrder.pending, (state) => {
         state.status = "loading";
         state.error = null;
       })
-      .addCase(deleteCustomer.fulfilled, (state) => {
+      .addCase(deleteOrder.fulfilled, (state) => {
         state.status = "succeeded";
-        state.customer = null;
         state.error = null;
       })
-      .addCase(deleteCustomer.rejected, (state, action) => {
+      .addCase(deleteOrder.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.payload;
       })
       .addCase("auth/logout/fulfilled", (state) => {
         state.status = "idle";
-        state.customer = null;
+        state.orders = null;
+        state.error = null;
+      })
+      .addCase("customer/deleteCustomer/fulfilled", (state) => {
+        state.status = "idle";
+        state.orders = null;
         state.error = null;
       })
   }
 });
 
-export default customerSlice.reducer;
+export default ordersSlice.reducer;
 
-export { getCustomerInfo, updateCustomerInfo, deleteCustomer };
+export { getOrders, createOrder, deleteOrder };
