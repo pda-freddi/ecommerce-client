@@ -1,8 +1,13 @@
 import React from 'react';
+import Header from "./components/header/Header.js";
+import Main from "./components/main/Main.js";
 
 function App() {
   return (
-    <p>Test</p>
+    <>
+      <Header />
+      <Main />
+    </>
   );
 }
 
