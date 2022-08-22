@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login, logout } from "./authSlice.js";
+import { login } from "./authSlice.js";
 import LoadingSpinner from "../../components/utils/LoadingSpinner.js";
 import { ClipLoader } from "react-spinners";
 import styles from "./LoginForm.module.css";
@@ -38,10 +38,6 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(login({ email, password }));
-  };
-
-  const handleLogout = () => {
-    dispatch(logout());
   };
 
   if (authStatus === "succeeded") {

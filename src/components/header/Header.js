@@ -8,13 +8,16 @@ import gitHubLogo from "../../icons/github.png";
 
 const Header = () => {
 
+  // Define variables used in the component
   const dispatch = useDispatch();
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 
+  // Event handlers
   const handleLogout = () => {
     dispatch(logout());
   };
 
+  // Define which header links to show based on user authentication status
   let headerLinks;
   if (isAuthenticated) {
     headerLinks = ( 
