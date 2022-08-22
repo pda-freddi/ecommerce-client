@@ -33,6 +33,7 @@
 }
 
 .button:hover {
+  cursor: pointer;
   color: #FFFFFF;
   background-color: #000000;
   transition: background-color linear 0.20s, color linear 0.20s;

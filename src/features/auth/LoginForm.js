@@ -50,7 +50,6 @@ const LoginForm = () => {
         <p className={styles.successMessage}>Login successful!</p>
         <p className={styles.redirectMessage}>Redirecting...</p>
         <ClipLoader />
-        <button onClick={handleLogout}>Logout</button>
       </>
     );
   }
