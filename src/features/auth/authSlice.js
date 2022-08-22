@@ -39,7 +39,7 @@ const authSlice = createSlice({
         state.isAuthenticated = false;
         state.error = null;
       })
-      .addCase(login.fulfilled, (state, action) => {
+      .addCase(login.fulfilled, (state) => {
         state.status = "succeeded";
         state.isAuthenticated = true;
         state.error = null;
@@ -49,20 +49,10 @@ const authSlice = createSlice({
         state.isAuthenticated = false;
         state.error = action.payload;
       })
-      .addCase(logout.pending, (state) => {
-        state.status = "loading";
-        state.isAuthenticated = true;
-        state.error = null;
-      })
       .addCase(logout.fulfilled, (state, action) => {
-        state.status = "succeeded";
+        state.status = "idle";
         state.isAuthenticated = false;
         state.error = null;
-      })
-      .addCase(logout.rejected, (state, action) => {
-        state.status = "failed";
-        state.isAuthenticated = true;
-        state.error = action.payload;
       })
       .addCase("customer/deleteCustomer/fulfilled", (state) => {
         state.status = "idle";
