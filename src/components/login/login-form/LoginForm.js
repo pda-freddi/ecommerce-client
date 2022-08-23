@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "./authSlice.js";
-import LoadingSpinner from "../../components/utils/loading-spinner/LoadingSpinner.js";
+import { login } from "../../../features/auth/authSlice.js";
+import LoadingSpinner from "../../utils/loading-spinner/LoadingSpinner.js";
 import styles from "./LoginForm.module.css";
 
 const LoginForm = () => {

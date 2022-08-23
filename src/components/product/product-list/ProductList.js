@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useFeatureState } from "../../hooks/useFeatureState.js";
+import { useFeatureState } from "../../../hooks/useFeatureState.js";
 import { useParams } from "react-router-dom";
-import { getProducts } from "./productsSlice.js";
-import LoadingSpinner from "../../components/utils/loading-spinner/LoadingSpinner.js";
-import ProductCard from "../../components/product/product-card/ProductCard.js";
-import styles from "./ProductsList.module.css";
+import { getProducts } from "../../../features/products/productsSlice.js";
+import LoadingSpinner from "../../utils/loading-spinner/LoadingSpinner.js";
+import ProductCard from "../product-card/ProductCard.js";
+import styles from "./ProductList.module.css";
 
 const ProductsList = () => {
   // Define variables used in the component

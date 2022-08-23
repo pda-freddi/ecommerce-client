@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
-import LoginForm from "../../features/auth/LoginForm.js";
+import LoginForm from "../login-form/LoginForm.js";
 import { Link } from "react-router-dom";
-import styles from "./Login.module.css";
+import styles from "./LoginPage.module.css";
 
 const LoginPage = () => {
 

@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useFeatureState } from "../../hooks/useFeatureState.js";
+import { useFeatureState } from "../../../hooks/useFeatureState.js";
 import { useParams } from "react-router-dom";
-import { getProducts } from "./productsSlice.js";
-import LoadingSpinner from "../../components/utils/loading-spinner/LoadingSpinner.js";
-import ProductDetails from "../../components/product/product-details/ProductDetails.js";
+import { getProducts } from "../../../features/products/productsSlice.js";
+import LoadingSpinner from "../../utils/loading-spinner/LoadingSpinner.js";
+import ProductDetails from "../product-details/ProductDetails.js";
 import styles from "./ProductPage.module.css";
 
 
