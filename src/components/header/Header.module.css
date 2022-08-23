@@ -33,6 +33,18 @@
   font-weight: 700;
 }
 
+.logout {
+  font-size: 16px;
+  padding: 0;
+  border: 0;
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+
+.logout:hover {
+  font-weight: 700;
+}
+
 .logo {
   width: 32px;
   height: 32px;

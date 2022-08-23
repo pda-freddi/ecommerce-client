@@ -2,19 +2,11 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "./authSlice.js";
 import LoadingSpinner from "../../components/utils/LoadingSpinner.js";
-import { ClipLoader } from "react-spinners";
 import styles from "./LoginForm.module.css";
 
 const LoginForm = () => {
 
-  // To do:
-  // - Add logic to redirect the user to the page he was previously or to the homepage if
-  // he came directly to the login page; add a timer for redirect
-  // - Verify if it's necessary to clear input text after succesful login or if it can/will persist
-  // - Test what happens if user comes back to login page after sucessful login
-
   const dispatch = useDispatch();
-  
   const authStatus = useSelector(state => state.auth.status);
   const authError = useSelector(state => state.auth.error);
 
@@ -35,20 +27,10 @@ const LoginForm = () => {
   };
 
   // Submit event handler
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     dispatch(login({ email, password }));
   };
-
-  if (authStatus === "succeeded") {
-    return (
-      <>
-        <p className={styles.successMessage}>Login successful!</p>
-        <p className={styles.redirectMessage}>Redirecting...</p>
-        <ClipLoader />
-      </>
-    );
-  }
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>

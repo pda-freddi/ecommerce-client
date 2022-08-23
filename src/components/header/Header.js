@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { logout } from "../../features/auth/authSlice.js";
 import styles from "./Header.module.css";
 import shoppingBagIcon from "../../icons/shopping-bag.png";
@@ -11,10 +11,13 @@ const Header = () => {
   // Define variables used in the component
   const dispatch = useDispatch();
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   // Event handlers
   const handleLogout = () => {
     dispatch(logout());
+    navigate("/");
   };
 
   // Define which header links to show based on user authentication status
@@ -23,11 +26,15 @@ const Header = () => {
     headerLinks = ( 
       <>
         <Link to="/my-account" className={styles.link}>My Account</Link>
-        <p className={styles.link} onClick={handleLogout}>Logout</p>
+        <button className={styles.logout} onClick={handleLogout}>Logout</button>
       </>
     );
   } else {
-    headerLinks = <Link to="/login" className={styles.link}>Login</Link>;
+    headerLinks = (
+      <Link to="/login" state={{ from: location }} replace={true} className={styles.link}>
+        Login
+      </Link>
+    );
   }
 
   return (
