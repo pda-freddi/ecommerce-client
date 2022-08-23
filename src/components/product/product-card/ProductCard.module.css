@@ -1,0 +1,28 @@
+.container {
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 20px 10px;
+}
+
+.image {
+  border-radius: 10px 10px 0 0;
+}
+
+.link {
+  text-decoration: none;
+  color: #000000;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.title {
+  text-align: center;
+  margin: 10px;
+}
+
+.price {
+  text-align: center;
+  margin: 10px;
+}

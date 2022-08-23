@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useFeatureState } from "../../hooks/useFeatureState.js";
 import { getCategories } from "./categoriesSlice.js";
 import LoadingSpinner from "../../components/utils/LoadingSpinner.js";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import styles from "./CategoryList.module.css";
 
 const CategoryList = () => {
@@ -20,21 +20,24 @@ const CategoryList = () => {
 
   // Render component
   return (
-    <section className={styles.container}>
-      { status === "loading" && <LoadingSpinner size="8px" /> }
-      { status === "failed" && <p className={styles.errorMessage}>{error}</p>}
-      { categories &&
-        categories.map(category =>
-          <Link
-          to={`/categories/${category.name}`}
-          key={category.id}
-          className={styles.link}
-          >
-            {category.displayName}
-          </Link>
-        )
-      }
-    </section>
+    <>
+      <section className={styles.container}>
+        { status === "loading" && <LoadingSpinner size="8px" /> }
+        { status === "failed" && <p className={styles.errorMessage}>{error}</p>}
+        { categories &&
+          categories.map(category =>
+            <Link
+            to={`/categories/${category.name}`}
+            key={category.id}
+            className={styles.link}
+            >
+              {category.displayName}
+            </Link>
+          )
+        }
+      </section>
+      <Outlet />
+    </>
   );
 };
 

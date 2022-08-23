@@ -1,0 +1,13 @@
+.container {
+  width: 90%;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000000;
+}
+
+.errorMessage {
+  margin: 10px;
+  font-weight: 700;
+}
