@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useFeatureState } from "../../hooks/useFeatureState.js";
 import { useParams } from "react-router-dom";
 import { getProducts } from "./productsSlice.js";
-import LoadingSpinner from "../../components/utils/LoadingSpinner.js";
+import LoadingSpinner from "../../components/utils/loading-spinner/LoadingSpinner.js";
 import ProductDetails from "../../components/product/product-details/ProductDetails.js";
 import styles from "./ProductPage.module.css";
 

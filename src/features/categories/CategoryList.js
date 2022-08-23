@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useFeatureState } from "../../hooks/useFeatureState.js";
 import { getCategories } from "./categoriesSlice.js";
-import LoadingSpinner from "../../components/utils/LoadingSpinner.js";
+import LoadingSpinner from "../../components/utils/loading-spinner/LoadingSpinner.js";
 import { Link, Outlet } from "react-router-dom";
 import styles from "./CategoryList.module.css";
 
