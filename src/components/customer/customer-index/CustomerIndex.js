@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useFeatureState } from "../../../hooks/useFeatureState.js";
 import { getCustomerInfo } from "../../../features/customer/customerSlice.js";
-import EnsureAuthentication from "../../../components/utils/ensure-authentication/EnsureAuthentication.js";
-import LoadingSpinner from "../../../components/utils/loading-spinner/LoadingSpinner.js";
+import EnsureAuthentication from "../../utils/ensure-authentication/EnsureAuthentication.js";
+import LoadingSpinner from "../../utils/loading-spinner/LoadingSpinner.js";
 import CustomerProfile from "../customer-profile/CustomerProfile.js"
-import styles from "./CustomerPage.module.css";
+import styles from "./CustomerIndex.module.css";
 
-const CustomerPage = () => {
+const CustomerIndex = () => {
 
   const dispatch = useDispatch();
   const { customer, status, error } = useFeatureState("customer");
@@ -27,4 +27,4 @@ const CustomerPage = () => {
   );
 };
 
-export default CustomerPage;
+export default CustomerIndex;
