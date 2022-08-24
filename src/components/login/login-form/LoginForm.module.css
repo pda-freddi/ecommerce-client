@@ -45,20 +45,6 @@
   background-color: #FFFFFF;
 }
 
-.spinner {
-  margin-top: 100px;
-}
-
-.successMessage {
-  font-size: 20px;
-  font-weight: 700;
-  margin: 15px;
-}
-
-.redirectMessage {
-  margin: 15px;
-}
-
 .errorMessage {
   margin: 15px 0 0 0;
   font-size: 16px;
