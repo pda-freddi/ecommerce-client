@@ -1,0 +1,49 @@
+.container {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 50px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  border: 1px solid #000000;
+  border-radius: 15px;
+}
+
+.title {
+  margin: 5px 0 20px 0;
+}
+
+.successMessage {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 20px 0 40px 0;
+}
+
+.errorMessage {
+  margin: 10px;
+  font-weight: 700;
+}
+
+.button {
+  width: 30%;
+  height: 35px;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #FFFFFF;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.button:hover {
+  cursor: pointer;
+  color: #FFFFFF;
+  background-color: #000000;
+  transition: background-color linear 0.20s, color linear 0.20s;
+}
+
+.button:active {
+  color: #000000;
+  background-color: #FFFFFF;
+}

@@ -73,18 +73,6 @@ const customerSlice = createSlice({
         state.customer = null;
         state.error = action.payload;
       })
-      .addCase(updateCustomerInfo.pending, (state) => {
-        state.status = "loading";
-        state.error = null;
-      })
-      .addCase(updateCustomerInfo.fulfilled, (state) => {
-        state.status = "succeeded";
-        state.error = null;
-      })
-      .addCase(updateCustomerInfo.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.payload;
-      })
       .addCase(deleteCustomer.pending, (state) => {
         state.status = "loading";
         state.error = null;
