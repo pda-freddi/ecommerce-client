@@ -8,30 +8,57 @@ const login = createAsyncThunk(
     if (response.error) {
       return rejectWithValue(response.data);
     }
+    localStorage.setItem("lastLogin", Date.now().toString());
     return response.data;
   }
 );
 
 const logout = createAsyncThunk(
   "auth/logout",
-  async (_, { rejectWithValue }) => {
+  async (_, { dispatch, rejectWithValue }) => {
     const response = await client.post("/customer/logout");
     if (response.error) {
+      if (response.status === 401) {
+        dispatch(clearAuthentication());
+        localStorage.setItem("lastLogin", "");
+      }
       return rejectWithValue(response.data);
     }
+    localStorage.setItem("lastLogin", "");
     return response.data;
   }
 );
 
-const initialState = {
-  status: "idle",
-  isAuthenticated: false,
-  error: null
+const getInitialState = () => {
+  const lastLogin = localStorage.getItem("lastLogin");
+  if (lastLogin) {
+    const now = Math.floor(Date.now() / 1000);
+    const timeDifference = now - Math.floor(parseInt(lastLogin) / 1000);
+    if (timeDifference < 3600) {
+      return {
+        status: "succeeded",
+        isAuthenticated: true,
+        error: null
+      };
+    }
+  }
+  return {
+      status: "idle",
+      isAuthenticated: false,
+      error: null
+  };
 };
 
 const authSlice = createSlice({
   name: "auth",
-  initialState,
+  initialState: getInitialState(),
+  reducers: {
+    clearAuthentication: (state) => {
+      state.status = "idle";
+      state.isAuthenticated = false;
+      state.error = null;
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(login.pending, (state) => {
@@ -63,5 +90,7 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
+
+export const { clearAuthentication } = authSlice.actions;
 
 export { login, logout };

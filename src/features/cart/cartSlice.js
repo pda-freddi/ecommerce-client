@@ -1,14 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { client } from "../../api/client.js";
+import { clearAuthentication } from "../auth/authSlice.js"
 
 const getCart = createAsyncThunk(
   "cart/getCart",
-  async (_, { getState, rejectWithValue }) => {
-    if (!getState().auth.isAuthenticated) {
-      return rejectWithValue("Authentication required.");
-    }
+  async (_, { dispatch, rejectWithValue }) => {
     const response = await client.get("/cart");
     if (response.error) {
+      if (response.status === 401) {
+        dispatch(clearAuthentication());
+        localStorage.setItem("lastLogin", "");
+      }
       return rejectWithValue(response.data);
     }
     return response.data;
@@ -17,12 +19,13 @@ const getCart = createAsyncThunk(
 
 const addItemToCart = createAsyncThunk(
   "cart/addItem",
-  async (payload, { getState, rejectWithValue }) => {
-    if (!getState().auth.isAuthenticated) {
-      return rejectWithValue("Authentication required.");
-    }
+  async (payload, { dispatch, rejectWithValue }) => {
     const response = await client.post("/cart", payload);
     if (response.error) {
+      if (response.status === 401) {
+        dispatch(clearAuthentication());
+        localStorage.setItem("lastLogin", "");
+      }
       return rejectWithValue(response.data);
     }
     return response.data;
@@ -31,12 +34,13 @@ const addItemToCart = createAsyncThunk(
 
 const updateItemInCart = createAsyncThunk(
   "cart/updateItem",
-  async ({ cartItemId, payload }, { getState, rejectWithValue }) => {
-    if (!getState().auth.isAuthenticated) {
-      return rejectWithValue("Authentication required.");
-    }
+  async ({ cartItemId, payload }, { dispatch, rejectWithValue }) => {
     const response = await client.put(`/cart/${cartItemId}`, payload);
     if (response.error) {
+      if (response.status === 401) {
+        dispatch(clearAuthentication());
+        localStorage.setItem("lastLogin", "");
+      }
       return rejectWithValue(response.data);
     }
     return response.data;
@@ -45,12 +49,13 @@ const updateItemInCart = createAsyncThunk(
 
 const deleteItemInCart = createAsyncThunk(
   "cart/deleteItem",
-  async (cartItemId, { getState, rejectWithValue }) => {
-    if (!getState().auth.isAuthenticated) {
-      return rejectWithValue("Authentication required.");
-    }
+  async (cartItemId, { dispatch, rejectWithValue }) => {
     const response = await client.delete(`/cart/${cartItemId}`);
     if (response.error) {
+      if (response.status === 401) {
+        dispatch(clearAuthentication());
+        localStorage.setItem("lastLogin", "");
+      }
       return rejectWithValue(response.data);
     }
     return response.data;

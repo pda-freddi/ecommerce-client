@@ -11,12 +11,12 @@ export const client = {
         const response = await fetch(`${baseUrl}${endpoint}`, { credentials: "include" });
         if (!response.ok) {
           const error = await response.json();
-          return { error: true, data: error.message };
+          return { status: response.status, error: true, data: error.message };
         }
         const responseData = await response.json();
-        return { error: false, data: responseData };
+        return { status: response.status, error: false, data: responseData };
       } catch(error) {
-        return { error: true, data: error.message };
+        return { status: null, error: true, data: error.message };
       }
     },
   post: async (endpoint, payload, expectResBody) => {
@@ -33,15 +33,15 @@ export const client = {
         });
       if (!response.ok) {
         const error = await response.json();
-        return { error: true, data: error.message };
+        return { status: response.status, error: true, data: error.message };
       }
       if (expectResBody) {
         const responseData = await response.json();
-        return { error: false, data: responseData };
+        return { status: response.status, error: false, data: responseData };
       }
-      return { error: false, data: null }
+      return { status: response.status, error: false, data: null }
     } catch(error) {
-      return { error: true, data: error.message };
+      return { status: null, error: true, data: error.message };
     }
   },
   put: async (endpoint, payload, expectResBody) => {
@@ -58,15 +58,15 @@ export const client = {
         });
       if (!response.ok) {
         const error = await response.json();
-        return { error: true, data: error.message };
+        return { status: response.status, error: true, data: error.message };
       }
       if (expectResBody) {
         const responseData = await response.json();
-        return { error: false, data: responseData };
+        return { status: response.status, error: false, data: responseData };
       }
-      return { error: false, data: null }
+      return { status: response.status, error: false, data: null }
     } catch(error) {
-      return { error: true, data: error.message };
+      return { status: null, error: true, data: error.message };
     }
   },
   delete: async (endpoint, payload, expectResBody) => {
@@ -83,15 +83,15 @@ export const client = {
         });
       if (!response.ok) {
         const error = await response.json();
-        return { error: true, data: error.message };
+        return { status: response.status, error: true, data: error.message };
       }
       if (expectResBody) {
         const responseData = await response.json();
-        return { error: false, data: responseData };
+        return { status: response.status, error: false, data: responseData };
       }
-      return { error: false, data: null }
+      return { status: response.status, error: false, data: null }
     } catch(error) {
-      return { error: true, data: error.message };
+      return { status: null, error: true, data: error.message };
     }
   }
 };

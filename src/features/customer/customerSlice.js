@@ -1,14 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { client } from "../../api/client.js";
+import { clearAuthentication } from "../auth/authSlice.js";
 
 const getCustomerInfo = createAsyncThunk(
   "customer/getInfo",
-  async (_, { getState, rejectWithValue }) => {
-    if (!getState().auth.isAuthenticated) {
-      return rejectWithValue("Authentication required.");
-    }
+  async (_, { dispatch, rejectWithValue }) => {
     const response = await client.get("/customer");
     if (response.error) {
+      if (response.status === 401) {
+        dispatch(clearAuthentication());
+        localStorage.setItem("lastLogin", "");
+      }
       return rejectWithValue(response.data);
     }
     return response.data;
@@ -17,12 +19,13 @@ const getCustomerInfo = createAsyncThunk(
 
 const updateCustomerInfo = createAsyncThunk(
   "customer/updateInfo",
-  async (payload, { getState, rejectWithValue }) => {
-    if (!getState().auth.isAuthenticated) {
-      return rejectWithValue("Authentication required.");
-    }
+  async (payload, { dispatch, rejectWithValue }) => {
     const response = await client.put("/customer", payload);
     if (response.error) {
+      if (response.status === 401) {
+        dispatch(clearAuthentication());
+        localStorage.setItem("lastLogin", "");
+      }
       return rejectWithValue(response.data);
     }
     return response.data;
@@ -31,12 +34,13 @@ const updateCustomerInfo = createAsyncThunk(
 
 const deleteCustomer = createAsyncThunk(
   "customer/deleteCustomer",
-  async (_, { getState, rejectWithValue }) => {
-    if (!getState().auth.isAuthenticated) {
-      return rejectWithValue("Authentication required.");
-    }
+  async (_, { dispatch, rejectWithValue }) => {
     const response = await client.delete("/customer");
     if (response.error) {
+      if (response.status === 401) {
+        dispatch(clearAuthentication());
+        localStorage.setItem("lastLogin", "");
+      }
       return rejectWithValue(response.data);
     }
     return response.data;

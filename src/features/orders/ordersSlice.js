@@ -1,14 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { client } from "../../api/client.js";
+import { clearAuthentication } from "../auth/authSlice.js";
 
 const getOrders = createAsyncThunk(
   "orders/getOrders",
-  async (_, { getState, rejectWithValue }) => {
-    if (!getState().auth.isAuthenticated) {
-      return rejectWithValue("Authentication required.");
-    }
+  async (_, { dispatch, rejectWithValue }) => {
     const response = await client.get("/order");
     if (response.error) {
+      if (response.status === 401) {
+        dispatch(clearAuthentication());
+        localStorage.setItem("lastLogin", "");
+      }
       return rejectWithValue(response.data);
     }
     return response.data;
@@ -17,12 +19,13 @@ const getOrders = createAsyncThunk(
 
 const createOrder = createAsyncThunk(
   "orders/createOrder",
-  async (payload, { getState, rejectWithValue }) => {
-    if (!getState().auth.isAuthenticated) {
-      return rejectWithValue("Authentication required.");
-    }
+  async (payload, { dispatch, rejectWithValue }) => {
     const response = await client.post("/order", payload, true);
     if (response.error) {
+      if (response.status === 401) {
+        dispatch(clearAuthentication());
+        localStorage.setItem("lastLogin", "");
+      }
       return rejectWithValue(response.data);
     }
     return response.data;
@@ -31,12 +34,13 @@ const createOrder = createAsyncThunk(
 
 const deleteOrder = createAsyncThunk(
   "orders/deleteOrder",
-  async (orderId, { getState, rejectWithValue }) => {
-    if (!getState().auth.isAuthenticated) {
-      return rejectWithValue("Authentication required.");
-    }
+  async (orderId, { dispatch, rejectWithValue }) => {
     const response = await client.delete(`/order/${orderId}`);
     if (response.error) {
+      if (response.status === 401) {
+        dispatch(clearAuthentication());
+        localStorage.setItem("lastLogin", "");
+      }
       return rejectWithValue(response.data);
     }
     return response.data;
