@@ -7,7 +7,7 @@ import CustomerIndex from "../customer/customer-index/CustomerIndex.js";
 import CustomerUpdatePage from "../customer/customer-update/CustomerUpdatePage.js";
 import CustomerDeletePage from "../customer/customer-delete/CustomerDeletePage.js";
 import LoginPage from "../login/login-page/LoginPage.js";
-import RegisterPage from "../register/RegisterPage.js";
+import RegisterPage from "../register/register-page/RegisterPage.js";
 import styles from "./Main.module.css";
 
 

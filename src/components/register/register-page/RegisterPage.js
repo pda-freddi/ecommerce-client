@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
-import RegisterForm from "./RegisterForm.js";
+import RegisterForm from "../register-form/RegisterForm.js";
 import styles from "./RegisterPage.module.css";
 
 const RegisterPage = () => {

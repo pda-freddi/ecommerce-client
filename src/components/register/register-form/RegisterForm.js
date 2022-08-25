@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createCustomer } from "../../features/customer/customerSlice.js";
-import LoadingSpinner from "../utils/loading-spinner/LoadingSpinner.js";
+import { createCustomer } from "../../../features/customer/customerSlice.js";
+import LoadingSpinner from "../../utils/loading-spinner/LoadingSpinner.js";
 import styles from "./RegisterForm.module.css";
 
 const RegisterForm = ({ onRegistrationSuccess }) => {
