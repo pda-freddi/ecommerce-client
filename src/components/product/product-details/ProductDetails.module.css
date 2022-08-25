@@ -4,7 +4,7 @@
   flex-direction: row;
 }
 
-.imgContainer{
+.imgContainer {
 }
 
 .image {
@@ -12,6 +12,7 @@
 
 .textContainer {
   width: 100%;
+  height: 100%;
   padding: 0 15px;
 }
 

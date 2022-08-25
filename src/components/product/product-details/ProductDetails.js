@@ -1,10 +1,8 @@
 import React from "react";
+import AddToCart from "../../cart/add-to-cart/AddToCart.js";
 import styles from "./ProductDetails.module.css";
 
 const ProductDetails = ({ product }) => {
-
-  // To do: add buttons with cart features
-
   return (
     <article className={styles.container}>
       <section className={styles.imgContainer}>
@@ -18,8 +16,8 @@ const ProductDetails = ({ product }) => {
         <p>Price: ${product.price}</p>
         <p>Description:</p>
         <p>{product.description}</p>
+        <AddToCart productId={product.id} />
       </section>
-      
     </article>
   );
 };
