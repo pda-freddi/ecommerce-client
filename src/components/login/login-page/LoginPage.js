@@ -17,9 +17,10 @@ const LoginPage = () => {
   // Set up effect for redirect when successfully authenticated
   useEffect(() => {
     if (isAuthenticated) {
-      setTimeout(() => {
+      const timerId = setTimeout(() => {
         navigate(from, { replace: true })
       }, 2000);
+      return () => clearTimeout(timerId);
     }
   });
 

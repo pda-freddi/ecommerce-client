@@ -12,9 +12,10 @@ const EnsureAuthentication = ({ children, showMessage }) => {
 
   useEffect(() => {
     if (!isAuthenticated && showMessage) {
-      setTimeout(() => {
+      const timerId = setTimeout(() => {
         navigate("/login", { state: { from: location }, replace: true })
       }, 3000);
+      return () => clearTimeout(timerId);
     }
   });
 

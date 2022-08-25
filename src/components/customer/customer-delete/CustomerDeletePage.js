@@ -15,9 +15,10 @@ const CustomerDeletePage = () => {
   // redirect to homepage in 3 seconds
   useEffect(() => {
     if (deleteSuccess) {
-      setTimeout(() => {
+      const timerId = setTimeout(() => {
         navigate("/", { replace: true })
       }, 3000);
+      return () => clearTimeout(timerId);
     }
   });
 
