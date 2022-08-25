@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+
+  margin: 10px 0;
+}
+
+.thumbnail {
+  width: 150px;
+  height: 150px;
+}
+
+.textContainer {
+  margin: 0 10px;
+}
+

@@ -1,0 +1,38 @@
+.container {
+  min-width: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  width: 80px;
+  height: 35px;
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #FFFFFF;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.button:hover {
+  cursor: pointer;
+  color: #FFFFFF;
+  background-color: #000000;
+  transition: background-color linear 0.20s, color linear 0.20s;
+}
+
+.button:active {
+  color: #000000;
+  background-color: #FFFFFF;
+}
+
+.errorMessage {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #eb1c1c;
+  text-align: center;
+}
