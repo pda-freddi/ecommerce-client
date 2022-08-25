@@ -65,7 +65,8 @@ const deleteItemInCart = createAsyncThunk(
 const initialState = {
   status: "idle",
   cart: null,
-  error: null
+  error: null,
+  shouldRefresh: false
 };
 
 const cartSlice = createSlice({
@@ -77,52 +78,28 @@ const cartSlice = createSlice({
         state.status = "loading";
         state.cart = null;
         state.error = null;
+        state.shouldRefresh = false;
       })
       .addCase(getCart.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.cart = action.payload;
         state.error = null;
+        state.shouldRefresh = false;
       })
       .addCase(getCart.rejected, (state, action) => {
         state.status = "failed";
         state.cart = null;
         state.error = action.payload;
-      })
-      .addCase(addItemToCart.pending, (state) => {
-        state.status = "loading";
-        state.error = null;
+        state.shouldRefresh = false;
       })
       .addCase(addItemToCart.fulfilled, (state) => {
-        state.status = "succeeded";
-        state.error = null;
-      })
-      .addCase(addItemToCart.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.payload;
-      })
-      .addCase(updateItemInCart.pending, (state) => {
-        state.status = "loading";
-        state.error = null;
+        state.shouldRefresh = true;
       })
       .addCase(updateItemInCart.fulfilled, (state) => {
-        state.status = "succeeded";
-        state.error = null;
-      })
-      .addCase(updateItemInCart.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.payload;
-      })
-      .addCase(deleteItemInCart.pending, (state) => {
-        state.status = "loading";
-        state.error = null;
+        state.shouldRefresh = true;
       })
       .addCase(deleteItemInCart.fulfilled, (state) => {
-        state.status = "succeeded";
-        state.error = null;
-      })
-      .addCase(deleteItemInCart.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.payload;
+        state.shouldRefresh = true;
       })
       .addCase("auth/logout/fulfilled", (state) => {
         state.status = "idle";

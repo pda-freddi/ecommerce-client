@@ -8,6 +8,7 @@ import CustomerUpdatePage from "../customer/customer-update/CustomerUpdatePage.j
 import CustomerDeletePage from "../customer/customer-delete/CustomerDeletePage.js";
 import LoginPage from "../login/login-page/LoginPage.js";
 import RegisterPage from "../register/register-page/RegisterPage.js";
+import CartPage from "../cart/cart-page/CartPage.js";
 import styles from "./Main.module.css";
 
 
@@ -26,6 +27,7 @@ const Main = () => {
         <Route path="/my-account/delete" element={<CustomerDeletePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/cart" element={<CartPage />} />
         <Route path="*" element={<p>Not found!</p>} />
       </Routes>
     </main>

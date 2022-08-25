@@ -25,6 +25,7 @@ const Header = () => {
   if (isAuthenticated) {
     headerLinks = ( 
       <>
+        <Link to ="/cart" className={styles.link}>Cart</Link>
         <Link to="/my-account" className={styles.link}>My Account</Link>
         <button className={styles.logout} onClick={handleLogout}>Logout</button>
       </>
@@ -32,10 +33,11 @@ const Header = () => {
   } else {
     headerLinks = (
       <>
+        <Link to ="/cart" className={styles.link}>Cart</Link>
+        <Link to="/register" className={styles.link}>Register</Link>
         <Link to="/login" state={{ from: location }} replace={true} className={styles.link}>
           Login
         </Link>
-        <Link to="/register" className={styles.link}>Register</Link>
       </>
     );
   }
