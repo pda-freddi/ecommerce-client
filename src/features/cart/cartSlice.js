@@ -105,11 +105,13 @@ const cartSlice = createSlice({
         state.status = "idle";
         state.cart = null;
         state.error = null;
+        state.shouldRefresh = false;
       })
       .addCase("customer/deleteCustomer/fulfilled", (state) => {
         state.status = "idle";
         state.cart = null;
         state.error = null;
+        state.shouldRefresh = false;
       })
   }
 });

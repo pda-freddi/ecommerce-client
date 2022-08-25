@@ -50,7 +50,8 @@ const deleteOrder = createAsyncThunk(
 const initialState = {
   status: "idle",
   orders: null,
-  error: null
+  error: null,
+  shouldRefresh: false
 };
 
 const ordersSlice = createSlice({
@@ -62,50 +63,37 @@ const ordersSlice = createSlice({
         state.status = "loading";
         state.orders = null;
         state.error = null;
+        state.shouldRefresh = false;
       })
       .addCase(getOrders.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.orders = action.payload;
         state.error = null;
+        state.shouldRefresh = false;
       })
       .addCase(getOrders.rejected, (state, action) => {
         state.status = "failed";
         state.orders = null;
         state.error = action.payload;
-      })
-      .addCase(createOrder.pending, (state) => {
-        state.status = "loading";
-        state.error = null;
+        state.shouldRefresh = false;
       })
       .addCase(createOrder.fulfilled, (state) => {
-        state.status = "succeeded";
-        state.error = null;
-      })
-      .addCase(createOrder.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.payload;
-      })
-      .addCase(deleteOrder.pending, (state) => {
-        state.status = "loading";
-        state.error = null;
+        state.shouldRefresh = true;
       })
       .addCase(deleteOrder.fulfilled, (state) => {
-        state.status = "succeeded";
-        state.error = null;
-      })
-      .addCase(deleteOrder.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.payload;
+        state.shouldRefresh = true;
       })
       .addCase("auth/logout/fulfilled", (state) => {
         state.status = "idle";
         state.orders = null;
         state.error = null;
+        state.shouldRefresh = false;
       })
       .addCase("customer/deleteCustomer/fulfilled", (state) => {
         state.status = "idle";
         state.orders = null;
         state.error = null;
+        state.shouldRefresh = false;
       })
   }
 });

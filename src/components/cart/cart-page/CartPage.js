@@ -13,7 +13,6 @@ const CartPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { cart, status, error } = useFeatureState("cart");
-  // To do: edit useFeatureState hook to include shouldRefresh state variable
   const shouldRefresh = useSelector(state => state.cart.shouldRefresh);
 
   useEffect(() => {

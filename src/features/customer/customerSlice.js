@@ -62,7 +62,8 @@ const deleteCustomer = createAsyncThunk(
 const initialState = {
   status: "idle",
   customer: null,
-  error: null
+  error: null,
+  shouldRefresh: false
 };
 
 const customerSlice = createSlice({
@@ -74,26 +75,34 @@ const customerSlice = createSlice({
         state.status = "loading";
         state.customer = null;
         state.error = null;
+        state.shouldRefresh = false;
       })
       .addCase(getCustomerInfo.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.customer = action.payload;
         state.error = null;
+        state.shouldRefresh = false;
       })
       .addCase(getCustomerInfo.rejected, (state, action) => {
         state.status = "failed";
         state.customer = null;
         state.error = action.payload;
+        state.shouldRefresh = false;
+      })
+      .addCase(updateCustomerInfo.fulfilled, (state) => {
+        state.shouldRefresh = true;
       })
       .addCase(deleteCustomer.fulfilled, (state) => {
         state.status = "idle";
         state.customer = null;
         state.error = null;
+        state.shouldRefresh = false;
       })
       .addCase("auth/logout/fulfilled", (state) => {
         state.status = "idle";
         state.customer = null;
         state.error = null;
+        state.shouldRefresh = false;
       })
   }
 });

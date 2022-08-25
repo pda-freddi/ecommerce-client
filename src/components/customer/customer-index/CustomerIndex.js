@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useFeatureState } from "../../../hooks/useFeatureState.js";
 import { getCustomerInfo } from "../../../features/customer/customerSlice.js";
 import EnsureAuthentication from "../../utils/ensure-authentication/EnsureAuthentication.js";
@@ -11,10 +11,13 @@ const CustomerIndex = () => {
 
   const dispatch = useDispatch();
   const { customer, status, error } = useFeatureState("customer");
+  const shouldRefresh = useSelector(state => state.customer.shouldRefresh);
 
   useEffect(() => {
-    dispatch(getCustomerInfo());
-  }, [dispatch]);
+    if (!customer || shouldRefresh) {
+      dispatch(getCustomerInfo());
+    }
+  }, [dispatch, customer, shouldRefresh]);
 
   return (
     <EnsureAuthentication showMessage={true}>
