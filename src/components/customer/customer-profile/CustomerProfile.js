@@ -16,7 +16,7 @@ const CustomerProfile = ({ customer }) => {
       <section className={styles.linksContainer}>
         <Link to="orders" className={styles.link}>Your Orders</Link>
         <Link to="update" className={styles.link}>Update Information</Link>
-        <Link to="delete" className={styles.link}>Delete Profile</Link>
+        <Link to="delete" className={styles.link}>Delete Account</Link>
       </section>
     </>
   );

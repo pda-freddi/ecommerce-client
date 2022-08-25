@@ -32,6 +32,7 @@
 .button {
   width: 50%;
   height: 35px;
+  margin: 10px 0;
   font-size: 16px;
   font-weight: 700;
   background-color: #FFFFFF;

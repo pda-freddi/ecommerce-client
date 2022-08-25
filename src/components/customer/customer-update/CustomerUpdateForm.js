@@ -70,7 +70,7 @@ const CustomerUpdateForm = ({ customer, onUpdateSuccess }) => {
       .catch(error => {
         setStatus("failed");
         setError(error);
-      })
+      });
   };
 
   return (
