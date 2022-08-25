@@ -18,7 +18,7 @@ const AddToCart = ({ productId }) => {
   const [ error, setError ] = useState(null);
 
   // Input change handler
-  const inputChangeHandler = ({ target }) => {
+  const handleInputChange = ({ target }) => {
     setQuantity(target.value);
   };
 
@@ -26,7 +26,7 @@ const AddToCart = ({ productId }) => {
   const payload = { productId: productId, quantity: quantity };
 
   // Define submit handler
-  const submitHandler = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     if (!isAuthenticated) {
       return navigate("/login", { state: { from: location}, replace: true });
@@ -47,7 +47,7 @@ const AddToCart = ({ productId }) => {
 
   return (
     <div className={styles.container}>
-      <form className={styles.form} onSubmit={submitHandler}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <label htmlFor="quantity-add" className={styles.label}>
           Quantity
         </label>
@@ -57,7 +57,7 @@ const AddToCart = ({ productId }) => {
           name="quantity"
           type="number"
           value={quantity}
-          onChange={inputChangeHandler}
+          onChange={handleInputChange}
           required={true}
           min="1"
           max="99"
