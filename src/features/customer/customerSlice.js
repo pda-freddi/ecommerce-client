@@ -17,6 +17,17 @@ const getCustomerInfo = createAsyncThunk(
   }
 );
 
+const createCustomer = createAsyncThunk(
+  "customer/createCustomer",
+  async (payload, { rejectWithValue }) => {
+    const response = await client.post("/customer", payload);
+    if (response.error) {
+      return rejectWithValue(response.data);
+    }
+    return response.data;
+  }
+);
+
 const updateCustomerInfo = createAsyncThunk(
   "customer/updateInfo",
   async (payload, { dispatch, rejectWithValue }) => {
@@ -43,6 +54,7 @@ const deleteCustomer = createAsyncThunk(
       }
       return rejectWithValue(response.data);
     }
+    localStorage.setItem("lastLogin", "");
     return response.data;
   }
 );
@@ -88,4 +100,7 @@ const customerSlice = createSlice({
 
 export default customerSlice.reducer;
 
-export { getCustomerInfo, updateCustomerInfo, deleteCustomer };
+export { getCustomerInfo,
+         createCustomer,
+         updateCustomerInfo, 
+         deleteCustomer };

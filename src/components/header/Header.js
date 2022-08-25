@@ -31,9 +31,12 @@ const Header = () => {
     );
   } else {
     headerLinks = (
-      <Link to="/login" state={{ from: location }} replace={true} className={styles.link}>
-        Login
-      </Link>
+      <>
+        <Link to="/login" state={{ from: location }} replace={true} className={styles.link}>
+          Login
+        </Link>
+        <Link to="/register" className={styles.link}>Register</Link>
+      </>
     );
   }
 
