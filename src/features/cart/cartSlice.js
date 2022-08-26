@@ -101,6 +101,9 @@ const cartSlice = createSlice({
       .addCase(deleteItemInCart.fulfilled, (state) => {
         state.shouldRefresh = true;
       })
+      .addCase("orders/createOrder/fulfilled", (state) => {
+        state.shouldRefresh = true;
+      })
       .addCase("auth/logout/fulfilled", (state) => {
         state.status = "idle";
         state.cart = null;
