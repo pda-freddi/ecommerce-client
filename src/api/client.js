@@ -3,7 +3,7 @@
 *  with the e-commerce back-end
 */
 
-const baseUrl = "http://localhost:8000/api";
+const baseUrl = `${process.env.REACT_APP_API_HOST_URL}/api`;
 
 export const client = {
   get: async (endpoint) => {

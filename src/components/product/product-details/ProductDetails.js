@@ -7,7 +7,7 @@ const ProductDetails = ({ product }) => {
     <article className={styles.container}>
       <section className={styles.imgContainer}>
         <img 
-         src={`http://localhost:8000${product.image}`} 
+         src={`${process.env.REACT_APP_API_HOST_URL}${product.image}`} 
          alt={product.displayName} 
          className={styles.image} />
       </section>
