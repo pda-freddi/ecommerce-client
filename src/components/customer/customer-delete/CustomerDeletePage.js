@@ -35,7 +35,7 @@ const CustomerDeletePage = () => {
   return (
     <EnsureAuthentication showMessage={true}>
       <section className={styles.container}>
-        <h2 className={styles.title}>Delete Your Account</h2>
+        <h2 className={styles.title}>Delete Account</h2>
         <p className={styles.message}>
           All your information, including orders, will be permanently deleted.
         </p>

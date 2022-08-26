@@ -35,7 +35,7 @@ const CustomerUpdatePage = () => {
   return (
     <EnsureAuthentication showMessage={true}>
       <section className={styles.container}>
-        <h2 className={styles.title}>Update Your Information</h2>
+        <h2 className={styles.title}>Update Information</h2>
         { status === "loading" && <LoadingSpinner size="8px" /> }
         { status === "failed" && <p className={styles.errorMessage}>{error}</p> }
         { customer && <CustomerUpdateForm customer={customer} onUpdateSuccess={setUpdateSuccess} /> }
