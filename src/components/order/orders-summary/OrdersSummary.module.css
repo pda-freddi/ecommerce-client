@@ -1,0 +1,45 @@
+.container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.linkContainer {
+  width: 100%;
+  margin: 10px 0;
+  border-bottom: 1px dashed black;
+}
+
+.linkContainer:last-child {
+  border-bottom: none;
+}
+
+.link {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: red;
+}
+
+.link:active {
+  color: #000000;
+}
+
+.detailsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.orderDetails {
+  margin: 10px 0;
+}
+
+.emptyMessage {
+  margin: 25px 0;
+}
+
