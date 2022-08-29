@@ -10,7 +10,7 @@ const CartItem = ({ item }) => {
   return (
     <article className={styles.container}>
       <img 
-      src={`http://localhost:8000${product.thumbnail}`} 
+      src={`${process.env.REACT_APP_API_HOST_URL}${product.thumbnail}`}
       alt={product.displayName} 
       className={styles.thumbnail} />
       <div className={styles.textContainer}>
