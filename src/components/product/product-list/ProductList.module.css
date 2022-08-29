@@ -7,8 +7,19 @@
   align-items: flex-start;
 }
 
+.title {
+  margin: 15px 0;
+  font-style: italic;
+}
+
+.searchTerm {
+  font-weight: 400;
+  font-style: normal;
+}
+
 .errorMessage {
   margin: 10px;
   font-weight: 700;
+  align-self: center;
 }
 

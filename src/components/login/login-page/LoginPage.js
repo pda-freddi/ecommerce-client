@@ -12,7 +12,7 @@ const LoginPage = () => {
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = `${location.state?.from?.pathname || "/"}${location.state?.from?.search || ""}`;
 
   // Set up effect for redirect when successfully authenticated
   useEffect(() => {
