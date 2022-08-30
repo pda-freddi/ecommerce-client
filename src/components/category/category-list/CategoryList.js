@@ -2,39 +2,48 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useFeatureState } from "../../../hooks/useFeatureState.js";
 import { getCategories } from "../../../features/categories/categoriesSlice.js";
+import { NavLink, Outlet } from "react-router-dom";
 import LoadingSpinner from "../../utils/loading-spinner/LoadingSpinner.js";
-import { Link, Outlet } from "react-router-dom";
+import ErrorMessage from "../../utils/error-message/ErrorMessage.js";
+import categoriesIcon from "../../../icons/category.png";
 import styles from "./CategoryList.module.css";
 
 const CategoryList = () => {
-  // Define variables used in the component
+
   const dispatch = useDispatch();
+
+  // Get categories state from the store
   const { categories, status, error } = useFeatureState("categories");
 
-  // Set up effect
+  // Populate categories state if it's not already there
   useEffect(() => {
     if (!categories) {
       dispatch(getCategories());
     }
   }, [dispatch, categories]);
 
-  // Render component
   return (
     <>
       <section className={styles.container}>
+        <h2 className={styles.title}>
+          <img src={categoriesIcon} alt="" className={styles.icon} />
+          Categories
+        </h2>
         { status === "loading" && <LoadingSpinner size="8px" /> }
-        { status === "failed" && <p className={styles.errorMessage}>{error}</p>}
-        { categories &&
-          categories.map(category =>
-            <Link
-            to={`/categories/${category.name}`}
-            key={category.id}
-            className={styles.link}
-            >
-              {category.displayName}
-            </Link>
-          )
-        }
+        { status === "failed" && <ErrorMessage message={error} /> }
+        <div className={styles.linksContainer}>
+          { categories &&
+            categories.map(category =>
+              <NavLink
+              to={`/categories/${category.name}`}
+              key={category.id}
+              className={({ isActive }) => isActive ? styles.navActive : styles.link}
+              >
+                {category.displayName}
+              </NavLink>
+            )
+          }
+        </div>
       </section>
       <Outlet />
     </>
