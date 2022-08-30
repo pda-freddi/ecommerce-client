@@ -14,6 +14,7 @@
 
 .link:active {
   font-weight: 400;
+  transition: none;
 }
 
 .icon {
@@ -32,6 +33,7 @@
   border: 0;
   background-color: #FFFFFF;
   cursor: pointer;
+  transition: font-weight 0.15s ease-in-out;
 }
 
 .logout:hover {
@@ -40,4 +42,5 @@
 
 .logout:active {
   font-weight: 400;
+  transition: none;
 }
