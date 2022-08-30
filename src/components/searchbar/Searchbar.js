@@ -17,7 +17,7 @@ const Searchbar = () => {
     return term.trim().toLowerCase().replaceAll(" ", "-");
   };
 
-  // Handler for input change and submit
+  // Handlers for input change and submit
   const handleInputChange = ({ target }) => {
     setSearchTerm(target.value);
   };
@@ -30,7 +30,7 @@ const Searchbar = () => {
   };
 
   return (
-    <form className={styles.container} onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <label htmlFor="search-input" className={styles.label}>
         <img 
         className={styles.searchIcon} 
@@ -51,11 +51,11 @@ const Searchbar = () => {
       {
         searchTerm &&
         <>
-          <button className={styles.searchButton} type="submit">
-            <img src={checkIcon} alt="Submit" />
+          <button className={styles.button} type="submit">
+            <img src={checkIcon} alt="Submit" className={styles.icon} />
           </button>
-          <button className={styles.clearButton} onClick={() => setSearchTerm("")}>
-            <img src={clearIcon} alt="Clear" />
+          <button className={styles.button} onClick={() => setSearchTerm("")}>
+            <img src={clearIcon} alt="Clear" className={styles.icon} />
           </button>
         </>
       }
