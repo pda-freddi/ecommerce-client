@@ -41,6 +41,7 @@
 
 .link:active {
   font-weight: 400;
+  transition: none;
 }
 
 .navActive {

@@ -88,7 +88,7 @@ const ProductsList = () => {
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>Products</h2>
-      <p className={styles.message}>Browse all products below or select a category to filter</p>
+      <p className={styles.message}>Browse all products or select a category to filter</p>
       { status === "loading" && <LoadingSpinner size="8px" /> }
       { status === "failed" && <ErrorMessage message={error} /> }
       <div className={styles.cardsContainer}>

@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { addItemToCart } from "../../../features/cart/cartSlice.js";
+import addToCartIcon from "../../../icons/add-cart.png";
 import LoadingSpinner from "../../utils/loading-spinner/LoadingSpinner.js";
 import styles from "./AddToCart.module.css";
 
-const AddToCart = ({ productId }) => {
+const AddToCart = ({ productId, showQuantityInput }) => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 
-  // Define local state variables
+  // Local state variables
   const [ quantity, setQuantity ] = useState(1);
   const [ status, setStatus ] = useState("idle");
   const [ error, setError ] = useState(null);
@@ -22,10 +23,10 @@ const AddToCart = ({ productId }) => {
     setQuantity(target.value);
   };
 
-  // Define payload to be sent to the server
+  // Payload to send to the server
   const payload = { productId: productId, quantity: quantity };
 
-  // Define submit handler
+  // Submit handler
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!isAuthenticated) {
@@ -45,9 +46,12 @@ const AddToCart = ({ productId }) => {
       });
   };
 
-  return (
-    <div className={styles.container}>
-      <form className={styles.form} onSubmit={handleSubmit}>
+  // Determine the form's children based on the value of showQuantityInput prop
+  let formChildren;
+
+  if (showQuantityInput) {
+    formChildren = (
+      <>
         <label htmlFor="quantity-add" className={styles.label}>
           Quantity
         </label>
@@ -72,13 +76,35 @@ const AddToCart = ({ productId }) => {
             value="Add to Cart"
           />
         }
-        </form>
+      </>
+    );
+  } else {
+    formChildren = (
+      <>
+        {
+            status === "loading" ?
+            <LoadingSpinner size="6px" />
+            :
+            <button className={styles.submitButtonWithIcon} type="submit">
+              <img src={addToCartIcon} alt="" className={styles.icon} />
+              Add to Cart
+            </button>
+        }
+      </>
+    );
+  }
+
+  return (
+    <>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        { formChildren }
+      </form>
       { 
         status === "succeeded" 
         && 
         <>
-        <p className={styles.successMessage}>Item was added to the cart!</p>
-        <Link to="/cart" className={styles.link}>View Cart</Link>
+          <p className={styles.successMessage}>Done!</p>
+          <Link to="/cart" className={styles.link}>View Cart</Link>
         </>
       }
       { error && <p className={styles.errorMessage}>{error}</p> }
@@ -87,7 +113,7 @@ const AddToCart = ({ productId }) => {
         &&
         <Link to="/cart" className={styles.link}>View cart</Link>
       }
-    </div>
+    </>
   );
 };
 
