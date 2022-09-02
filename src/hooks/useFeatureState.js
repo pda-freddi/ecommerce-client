@@ -1,3 +1,8 @@
+/*
+This hook selects the state variables associated with a feature and returns
+their values in an object. It expects only the feature's name as a parameter.
+*/
+
 import { useSelector } from "react-redux";
 
 const useFeatureState = (feature) => {
