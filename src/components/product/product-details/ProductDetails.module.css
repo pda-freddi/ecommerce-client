@@ -1,18 +1,39 @@
 .container {
-  width: 100%;
   display: flex;
   flex-direction: row;
-}
-
-.imgContainer {
+  margin-bottom: 10px;
+  border: 1px solid #808080;
+  border-radius: 10px;
 }
 
 .image {
+  width: 500px;
+  height: 500px;
+  border-radius: 10px 0 0 10px;
 }
 
 .textContainer {
-  width: 100%;
-  height: 100%;
-  padding: 0 15px;
+  padding: 15px;
+}
+
+.title {
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+.sku {
+  margin: 15px 0;
+  font-size: 0.90rem;
+  font-style: italic;
+}
+
+.info {
+  margin: 15px 0;
+}
+
+.inStock {
+  text-align: center;
+  margin: 25px 0;
+  color: red;
 }
 
