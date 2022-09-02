@@ -8,13 +8,16 @@ import styles from "./LoginPage.module.css";
 
 const LoginPage = () => {
 
-  // Define variables used in the component
-  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Get user's authentication status from the store
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+
+  // Get the path of the page the user was before coming to the login page
   const from = `${location.state?.from?.pathname || "/"}${location.state?.from?.search || ""}`;
 
-  // Set up effect for redirect when successfully authenticated
+  // Set up effect to redirect after 2 seconds when successfully authenticated
   useEffect(() => {
     if (isAuthenticated) {
       const timerId = setTimeout(() => {
