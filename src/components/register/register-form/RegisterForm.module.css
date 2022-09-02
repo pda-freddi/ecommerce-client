@@ -1,43 +1,48 @@
 .form {
-  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  align-content: center;
-  font-size: 18px;
   margin: 15px;
 }
 
+.icon {
+  position: relative;
+  top: 5px;
+  margin: 0 4px 0 0;
+}
+
 .label {
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 5px;
   align-self: flex-start;
 }
 
-
 .labelDescription {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 400;
 }
 
 .input {
   width: 100%;
   height: 25px;
-  margin-bottom: 20px;
-  font-size: 16px;
-  padding-left: 5px;
+  margin-bottom: 15px;
+  font-family: Poppins, sans-serif;
+  font-size: 0.95rem;
+  padding: 2px 5px;
+  border: 1px solid #808080;
+  border-radius: 5px;
 }
 
 .button {
-  width: 50%;
+  width: 120px;
   height: 35px;
   margin: 10px 0;
-  font-size: 16px;
-  font-weight: 700;
+  font-family: Poppins, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
   background-color: #FFFFFF;
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 1px solid #808080;
+  border-radius: 50px;
 }
 
 .button:hover {
@@ -50,12 +55,12 @@
 .button:active {
   color: #000000;
   background-color: #FFFFFF;
+  transition: none;
 }
 
 .errorMessage {
   margin: 15px 0 0 0;
-  font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
   color: #eb1c1c;
   text-align: center;
 }

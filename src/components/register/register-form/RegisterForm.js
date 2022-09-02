@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createCustomer } from "../../../features/customer/customerSlice.js";
+import mailIcon from "../../../icons/mail.png";
+import nameIcon from "../../../icons/name.png";
+import calendarIcon from "../../../icons/calendar.png";
+import phoneIcon from "../../../icons/phone.png";
+import keyIcon from "../../../icons/key.png";
 import LoadingSpinner from "../../utils/loading-spinner/LoadingSpinner.js";
 import styles from "./RegisterForm.module.css";
 
@@ -8,7 +13,7 @@ const RegisterForm = ({ onRegistrationSuccess }) => {
 
   const dispatch = useDispatch();
 
-  // Error and status variables
+  // Error and status local state variables
   const [ status, setStatus ] = useState("idle");
   const [ error, setError ] = useState(null);
   
@@ -75,7 +80,10 @@ const RegisterForm = ({ onRegistrationSuccess }) => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <label htmlFor="email-register" className={styles.label}>E-mail</label>
+      <label htmlFor="email-register" className={styles.label}>
+        <img src={mailIcon} alt="" className={styles.icon} />
+        E-mail
+      </label>
       <input
         id="email-register"
         className={styles.input}
@@ -85,7 +93,10 @@ const RegisterForm = ({ onRegistrationSuccess }) => {
         onChange={handleInputChange}
         required={true}
       />
-      <label htmlFor="firstName-register" className={styles.label}>First Name</label>
+      <label htmlFor="firstName-register" className={styles.label}>
+        <img src={nameIcon} alt="" className={styles.icon} />
+        First Name
+      </label>
       <input 
         id="firstName-register"
         className={styles.input}
@@ -109,6 +120,7 @@ const RegisterForm = ({ onRegistrationSuccess }) => {
         maxLength="100"
       />
       <label htmlFor="birthDate-register" className={styles.label}>
+        <img src={calendarIcon} alt="" className={styles.icon} />
         Birth Date <span className={styles.labelDescription}>(YYYY-MM-DD)</span>
       </label>
       <input
@@ -121,6 +133,7 @@ const RegisterForm = ({ onRegistrationSuccess }) => {
         required={true}
       />
       <label htmlFor="phone-register" className={styles.label}>
+        <img src={phoneIcon} alt="" className={styles.icon} />
         Phone <span className={styles.labelDescription}>(optional) (include country code)</span>
       </label>
       <input
@@ -132,6 +145,7 @@ const RegisterForm = ({ onRegistrationSuccess }) => {
         onChange={handleInputChange}
       />
       <label htmlFor="password-register" className={styles.label}>
+        <img src={keyIcon} alt="" className={styles.icon} />
         Password <br/><span className={styles.labelDescription}>(8-64 characters, 1+ uppercase letters, symbols and numbers)</span>
       </label>
       <input

@@ -59,7 +59,7 @@
   font-weight: 600;
   background-color: #FFFFFF;
   border: 1px solid #808080;
-  border-radius: 5px;
+  border-radius: 50px;
 }
 
 .submitButton:hover {
@@ -72,6 +72,7 @@
 .submitButton:active {
   color: #000000;
   background-color: #FFFFFF;
+  transition: none;
 }
 
 .successMessage {
@@ -99,4 +100,9 @@
 
 .link:hover {
   font-weight: 700;
+}
+
+.link:active {
+  font-weight: 400;
+  transition: none;
 }

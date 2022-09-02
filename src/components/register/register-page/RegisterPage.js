@@ -8,6 +8,7 @@ const RegisterPage = () => {
 
   const navigate = useNavigate();
 
+  // Local state variable to track a successful registration
   const [ registrationSuccess, setRegistrationSuccess ] = useState(false);
 
   // On registration success, render a confirmation message and redirect
