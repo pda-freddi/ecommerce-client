@@ -1,25 +1,24 @@
 .container {
   width: 80%;
-  min-height: 200px;
+  max-width: 1100px;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin-top: 50px;
-  border: 1px solid black;
-  border-radius: 10px;
   padding: 20px;
+  border: 1px solid #808080;
+  border-radius: 10px;
 }
 
-.title {}
-
-.errorMessage {
-  font-weight: 700;
+.title {
+  margin: 5px;
+  font-weight: 600;
 }
 
 .footer {
   width: 90%;
-  margin: 16px;
+  margin: 15px 0 5px 0;
   display: flex;
   justify-content: space-around;
 }
@@ -28,23 +27,23 @@
   width: 30%;
   max-width: 300px;
   height: 35px;
-  font-size: 16px;
-  font-weight: 700;
+  font-family: Poppins, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
   background-color: #FFFFFF;
-  border: 1px solid black;
+  border: 1px solid #808080;
   border-radius: 5px;
+
 }
 
 .button:hover {
   cursor: pointer;
-  color: #FFFFFF;
-  background-color: #000000;
-  transition: background-color linear 0.20s, color linear 0.20s;
+  font-weight: 700;
 }
 
 .button:active {
-  color: #000000;
-  background-color: #FFFFFF;
+  font-weight: 400;
+  transition: none;
 }
 
 .link {
@@ -54,22 +53,27 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: Arial;
-  font-size: 16px;
-  font-weight: 700;
+  font-family: Poppins, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
   color: #000000;
   text-decoration: none;
-  border: 1px solid black;
+  border: 1px solid #808080;
   border-radius: 5px;
+  transition: font-weight 0.15s ease-in-out;
 }
 
 .link:hover {
-  color: #FFFFFF;
-  background-color: #000000;
-  transition: background-color linear 0.20s, color linear 0.20s;
+  font-weight: 700;
 }
 
 .link:active {
-  color: #000000;
-  background-color: #FFFFFF;
+  font-weight: 400;
+  transition: none;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin: 0 2px 0 0;
 }

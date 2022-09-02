@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteItemInCart } from "../../../features/cart/cartSlice.js";
 import LoadingSpinner from "../../utils/loading-spinner/LoadingSpinner.js";
+import deleteIcon from "../../../icons/delete.png";
+import errorIcon from "../../../icons/error.png";
+import successIcon from "../../../icons/check.png";
 import styles from "./DeleteCartItem.module.css";
 
 const DeleteCartItem = ({ item }) => {
@@ -10,38 +13,55 @@ const DeleteCartItem = ({ item }) => {
 
   const dispatch = useDispatch();
 
-  // Local state variables
+  // Local state variable
   const [ status, setStatus ] = useState("idle");
-  const [ error, setError ] = useState(null);
 
   // Delete button click handler
-  const handleClick = () => {
+  const handleDelete = () => {
     setStatus("loading");
-    setError(null);
     dispatch(deleteItemInCart(cartItemId))
       .unwrap()
       .then(result => {
         setStatus("succeeded");
-        setError(null);
       })
       .catch(error => {
         setStatus("failed");
-        setError(error);
       })
   };
 
-  return (
-    <div className={styles.container}>
-      {
-        status === "loading" ?
-        <LoadingSpinner size="6px" />
-        :
-        <button className={styles.button} onClick={handleClick}>
-          Delete
+  // Render a different element depending on the value of the "state" variable
+  let element;
+  switch (status) {
+    case "loading":
+      element = <LoadingSpinner size="6px" margin="0px 5px" />;
+      break;
+    case "failed":
+      element = (
+        <p className={styles.message}>
+          <img src={errorIcon} alt="" className={styles.statusIcon} />
+          Error
+        </p>
+      );
+      break;
+    case "succeeded":
+      element = (
+        <p className={styles.message}>
+          <img src={successIcon} alt="Success" className={styles.statusIcon} />
+        </p>
+      );
+      break;
+    default:
+      element = (
+        <button className={styles.button} onClick={handleDelete}>
+          <img src={deleteIcon} alt="Delete" className={styles.icon} />
         </button>
-      }
-      { error && <p className={styles.errorMessage}>{error}</p> }
-    </div>
+      );
+  }
+
+  return (
+    <>
+      { element }
+    </>
   );
 };
 

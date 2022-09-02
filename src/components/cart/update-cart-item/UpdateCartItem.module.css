@@ -1,67 +1,43 @@
-.container {
-  width: 100%;
-  max-width: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.label {
-  margin: 10px 0 5px 0;
-}
-
 .input {
-  width: 20%;
-  max-width: 100px;
+  width: 40px;
   height: 25px;
+  margin: 0 5px;
   text-align: center;
-  font-size: 16px;
-  margin-bottom: 10px;
+  font-family: Poppins, sans-serif;
+  font-size: 1rem;
 }
 
-.submitButton {
-  width: 40%;
+.button {
   height: 35px;
-  margin: 0 0 10px 0;
-  font-size: 16px;
-  font-weight: 700;
+  margin: 0 5px;
+  padding: 1px 6px;
   background-color: #FFFFFF;
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 1px solid #808080;
+  border-radius: 50px;
+  transition: border 0.10s ease-in-out;
 }
 
-.submitButton:hover {
+.button:hover {
   cursor: pointer;
-  color: #FFFFFF;
-  background-color: #000000;
-  transition: background-color linear 0.20s, color linear 0.20s;
+  border: 2px solid #000000;
 }
 
-.submitButton:active {
-  color: #000000;
-  background-color: #FFFFFF;
+.button:active {
+  border: 1px solid #808080;
+  transition: none;
 }
 
-.successMessage {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 700;
-  text-align: center;
+.icon {
+  width: 24px;
+  height: 24px;
 }
 
-.errorMessage {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 700;
-  color: #eb1c1c;
-  text-align: center;
+.statusIcon {
+  position: relative;
+  top: 5px;
+  margin: 0 2px 0 0;
+}
+
+.message {
+  margin: 0 5px;
 }

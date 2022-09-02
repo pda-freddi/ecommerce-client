@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateItemInCart } from "../../../features/cart/cartSlice.js";
 import LoadingSpinner from "../../utils/loading-spinner/LoadingSpinner.js";
+import updateIcon from "../../../icons/refresh.png";
+import errorIcon from "../../../icons/error.png";
+import successIcon from "../../../icons/check.png";
 import styles from "./UpdateCartItem.module.css";
 
 const UpdateCartItem = ({ item }) => {
@@ -13,7 +16,6 @@ const UpdateCartItem = ({ item }) => {
   // Local state variables
   const [ quantity, setQuantity ] = useState(item.quantity);
   const [ status, setStatus ] = useState("idle");
-  const [ error, setError ] = useState(null);
 
   // Input change handler
   const handleInputChange = ({ target }) => {
@@ -24,53 +26,63 @@ const UpdateCartItem = ({ item }) => {
   const payload = { quantity };
 
   // Submit handler
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleUpdate = () => {
     setStatus("loading");
-    setError(null);
     dispatch(updateItemInCart({ cartItemId, payload }))
       .unwrap()
       .then(result => {
         setStatus("succeeded");
-        setError(null);
       })
       .catch(error => {
         setStatus("failed");
-        setError(error);
       });
   };
-   
+
+  // Render different elements depending on the value of the "state" variable
+  let element;
+
+  switch (status) {
+    case "loading":
+      element = <LoadingSpinner size="6px" margin="0px 5px" />;
+      break;
+    case "failed":
+      element = (
+        <p className={styles.message}>
+          <img src={errorIcon} alt="" className={styles.statusIcon} />
+          Error
+        </p>
+      );
+      break;
+    case "succeeded":
+      element = (
+        <p className={styles.message}>
+          <img src={successIcon} alt="Success" className={styles.statusIcon} />
+        </p>
+      );
+      break;
+    default:
+      element = (
+        <button className={styles.button} onClick={handleUpdate}>
+          <img src={updateIcon} alt="Update" className={styles.icon} />
+        </button>
+      );
+  }
+
   return (
-    <div className={styles.container}>
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <label htmlFor="quantity-update" className={styles.label}>
-          Quantity
-        </label>
-        <input
-          id="quantity-update"
-          className={styles.input}
-          name="quantity"
-          type="number"
-          value={quantity}
-          onChange={handleInputChange}
-          required={true}
-          min="1"
-          max="99"
-        />
-        {
-          status === "loading" ?
-          <LoadingSpinner size="6px" />
-          :
-          <input 
-            className={styles.submitButton}
-            type="submit"
-            value="Update"
-          />
-        }
-        </form>
-      { status === "succeeded" && <p className={styles.successMessage}>Item was updated!</p> }
-      { error && <p className={styles.errorMessage}>{error}</p> }
-    </div>
+    <>
+      <input
+        id="quantity-update"
+        className={styles.input}
+        aria-label="quantity"
+        name="quantity"
+        type="number"
+        value={quantity}
+        onChange={handleInputChange}
+        min="1"
+        max="99"
+      />
+      { element }
+    </>
   );
 };
 
