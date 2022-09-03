@@ -7,6 +7,7 @@ import calendarIcon from "../../../icons/calendar.png";
 import phoneIcon from "../../../icons/phone.png";
 import keyIcon from "../../../icons/key.png";
 import LoadingSpinner from "../../utils/loading-spinner/LoadingSpinner.js";
+import errorIcon from "../../../icons/error.png";
 import styles from "./RegisterForm.module.css";
 
 const RegisterForm = ({ onRegistrationSuccess }) => {
@@ -177,7 +178,11 @@ const RegisterForm = ({ onRegistrationSuccess }) => {
         <LoadingSpinner size="8px" />
         :
         <input type="submit" className={styles.button} value="Submit" /> }
-      { error && <p className={styles.errorMessage}>{error}</p> }
+      { error && <p className={styles.errorMessage}>
+                   <img src={errorIcon} alt="Error" className={styles.icon} />
+                   {error}
+                 </p>  
+      }
     </form>
   );
 };

@@ -4,6 +4,7 @@ import { login } from "../../../features/auth/authSlice.js";
 import mailIcon from "../../../icons/mail.png";
 import keyIcon from "../../../icons/key.png";
 import LoadingSpinner from "../../utils/loading-spinner/LoadingSpinner.js";
+import errorIcon from "../../../icons/error.png";
 import styles from "./LoginForm.module.css";
 
 const LoginForm = () => {
@@ -67,7 +68,11 @@ const LoginForm = () => {
       { authStatus === "loading" ? 
         <LoadingSpinner size="8px" />
         : <input type="submit" className={styles.button} value="Login" /> }
-      { authError && <p className={styles.errorMessage}>{authError}</p> }
+      { authError && <p className={styles.errorMessage}>
+                       <img src={errorIcon} alt="Error" className={styles.icon} />
+                       {authError}
+                     </p> 
+      }
     </form>
   );
 };
