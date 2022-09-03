@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createOrder } from "../../../features/orders/ordersSlice.js";
 import LoadingSpinner from "../../utils/loading-spinner/LoadingSpinner.js";
+import houseIcon from "../../../icons/house.png";
+import errorIcon from "../../../icons/error.png";
 import styles from "./ShippingAddressForm.module.css";
 
 const ShippingAddressForm = ({ onCheckoutSuccess }) => {
@@ -19,7 +21,7 @@ const ShippingAddressForm = ({ onCheckoutSuccess }) => {
   const [ postalCode, setPostalCode ] = useState("");
   const [ country, setCountry ] = useState("");
 
-  // Collect all state setters in a single object
+  // Collection of all state setters
   const stateSetters = {
     addressLine1: setAddressLine1,
     addressLine2: setAddressLine2,
@@ -69,7 +71,10 @@ const ShippingAddressForm = ({ onCheckoutSuccess }) => {
 
   return (
     <section className={styles.container}>
-      <h3 className={styles.title}>Shipping Information</h3>
+      <h3 className={styles.title}>
+        <img src={houseIcon} alt="" className={styles.icon} />
+        Shipping Information
+      </h3>
       <form className={styles.form} onSubmit={handleSubmit}>
         <label htmlFor="address-line1-checkout" className={styles.label}>
           Address Line 1
@@ -139,7 +144,11 @@ const ShippingAddressForm = ({ onCheckoutSuccess }) => {
           <LoadingSpinner size="8px" />
           :
           <input type="submit" className={styles.button} value="Place Order" /> }
-        { error && <p className={styles.errorMessage}>{error}</p> }
+        { error && <p className={styles.errorMessage}>
+                     <img src={errorIcon} alt="Error" className={styles.icon} />
+                     {error}
+                   </p> 
+        }
       </form>
     </section>
   );

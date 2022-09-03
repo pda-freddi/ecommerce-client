@@ -7,7 +7,9 @@ import EnsureAuthentication from "../../utils/ensure-authentication/EnsureAuthen
 import LoadingSpinner from "../../utils/loading-spinner/LoadingSpinner.js";
 import CheckoutDetails from "../checkout-details/CheckoutDetails.js";
 import PaymentForm from "../payment-form/PaymentForm.js";
-import ShippingAddressForm from "../shipping-address-form/ShippingAddressForm.js"
+import ShippingAddressForm from "../shipping-address-form/ShippingAddressForm.js";
+import ErrorMessage from "../../utils/error-message/ErrorMessage.js";
+import emptyCartIcon from "../../../icons/empty-cart.png";
 import styles from "./CheckoutPage.module.css";
 
 const CheckoutPage = () => {
@@ -34,7 +36,7 @@ const CheckoutPage = () => {
       <EnsureAuthentication showMessage={true}>
         <section className={styles.container}>
           <h2 className={styles.title}>Order placed successfully!</h2>
-          <p className={styles.successMessage}>Your order ID is: {orderId}</p>
+          <p className={styles.message}>Your order ID is: #{orderId}</p>
           <Link to="/my-account/orders" className={styles.link}>
             View your orders
           </Link>
@@ -49,7 +51,10 @@ const CheckoutPage = () => {
       <EnsureAuthentication showMessage={true}>
         <section className={styles.container}>
           <h2 className={styles.title}>Checkout</h2>
-          <p className={styles.emptyMessage}>Cart is empty!</p>
+          <p className={styles.message}>
+            <img src={emptyCartIcon} alt="" className={styles.icon} />
+            Cart is empty!
+          </p>
           <Link to="/" className={styles.link}>
             Go to homepage
           </Link>
@@ -64,7 +69,7 @@ const CheckoutPage = () => {
       <section className={styles.container}>
         <h2 className={styles.title}>Checkout</h2>
         { status === "loading" && <LoadingSpinner size="8px" /> }
-        { error && <p className={styles.errorMessage}>{error}</p> }
+        { error && <ErrorMessage message={error} /> }
         { cart && <CheckoutDetails cart={cart} /> }
         { cart && <PaymentForm /> }
         { cart && <ShippingAddressForm onCheckoutSuccess={setOrderId} /> }

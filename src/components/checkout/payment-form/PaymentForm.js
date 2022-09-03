@@ -1,10 +1,14 @@
 import React from "react";
+import cardIcon from "../../../icons/credit-card.png";
 import styles from "./PaymentForm.module.css";
 
 const PaymentForm = () => {
   return (
     <section className={styles.container}>
-      <h3 className={styles.title}>Payment Information</h3>
+      <h3 className={styles.title}>
+        <img src={cardIcon} alt="" className={styles.icon} />
+        Payment Information
+      </h3>
       <p className={styles.message}>
         Dummy credit card information provided below.
       </p>
