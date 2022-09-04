@@ -1,0 +1,46 @@
+.container {
+  min-width: 250px;
+  margin: 0 20px 0 0;
+  padding: 10px 0;
+  border: 1px solid #808080;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+}
+
+.icon {
+  position: relative;
+  top: 5px;
+  margin: 0 4px 0 0;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.linksContainer {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.link {
+  margin: 5px 0;
+  color: #000000;
+  text-decoration: none;
+  transition: font-weight 0.15s ease-in-out;
+}
+
+.link:hover {
+  font-weight: 700;
+}
+
+.link:active {
+  font-weight: 400;
+  transition: none;
+}

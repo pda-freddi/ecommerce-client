@@ -1,18 +1,17 @@
 .container {
-  width: 80%;
-  display: flex;
-  justify-content: space-evenly;
-  margin: 15px 0 10px 0;
+  margin: 15px 0;
 }
 
 .button {
-  width: 40%;
+  width: 150px;
   height: 35px;
-  font-size: 16px;
-  font-weight: 700;
+  margin: 0 15px;
+  font-family: Poppins;
+  font-size: 1rem;
+  font-weight: 600;
   background-color: #FFFFFF;
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 1px solid #808080;
+  border-radius: 50px;
 }
 
 .button:hover {
@@ -25,12 +24,5 @@
 .button:active {
   color: #000000;
   background-color: #FFFFFF;
-}
-
-.errorMessage {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 700;
-  color: #eb1c1c;
-  text-align: center;
+  transition: none;
 }

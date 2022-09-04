@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useFeatureState } from "../../../hooks/useFeatureState.js";
 import { getCustomerInfo } from "../../../features/customer/customerSlice.js";
 import EnsureAuthentication from "../../utils/ensure-authentication/EnsureAuthentication.js";
+import BackButton from "../../utils/back-button/BackButton.js";
 import LoadingSpinner from "../../utils/loading-spinner/LoadingSpinner.js";
+import ErrorMessage from "../../utils/error-message/ErrorMessage.js";
 import CustomerUpdateForm from "./CustomerUpdateForm.js";
+import checkIcon from "../../../icons/check.png";
 import styles from "./CustomerUpdatePage.module.css";
 
 const CustomerUpdatePage = () => {
-  const navigate = useNavigate();
+
   const dispatch = useDispatch();
+
+  // Get customer state from the store
   const { customer, status, error } = useFeatureState("customer");
+
+  // Local state variable to track update success
   const [ updateSuccess, setUpdateSuccess ] = useState(false);
 
+  // Populate customer state if it's not already there
   useEffect(() => {
     if (!customer) {
       dispatch(getCustomerInfo());
@@ -25,8 +32,11 @@ const CustomerUpdatePage = () => {
     return (
     <EnsureAuthentication showMessage={true}>
       <section className={styles.container}>
-        <p className={styles.successMessage}>Update successful!</p>
-        <button className={styles.button} onClick={() => navigate("/my-account")}>Back</button>
+        <p className={styles.successMessage}>
+          <img src={checkIcon} alt="" className={styles.icon} />
+          Update successful!
+        </p>
+        <BackButton destination="/my-account">Back</BackButton>
       </section>
     </EnsureAuthentication>
     );
@@ -35,9 +45,9 @@ const CustomerUpdatePage = () => {
   return (
     <EnsureAuthentication showMessage={true}>
       <section className={styles.container}>
-        <h2 className={styles.title}>Update Information</h2>
+        <h2 className={styles.title}>Update Your Information</h2>
         { status === "loading" && <LoadingSpinner size="8px" /> }
-        { status === "failed" && <p className={styles.errorMessage}>{error}</p> }
+        { status === "failed" && <ErrorMessage message={error} /> }
         { customer && <CustomerUpdateForm customer={customer} onUpdateSuccess={setUpdateSuccess} /> }
       </section>
     </EnsureAuthentication>

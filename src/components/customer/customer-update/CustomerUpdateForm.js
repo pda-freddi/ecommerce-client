@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateCustomerInfo } from "../../../features/customer/customerSlice.js";
+import mailIcon from "../../../icons/mail.png";
+import nameIcon from "../../../icons/name.png";
+import calendarIcon from "../../../icons/calendar.png";
+import phoneIcon from "../../../icons/phone.png";
+import keyIcon from "../../../icons/key.png";
 import LoadingSpinner from "../../utils/loading-spinner/LoadingSpinner.js";
+import errorIcon from "../../../icons/error.png";
 import styles from "./CustomerUpdateForm.module.css";
 
 const CustomerUpdateForm = ({ customer, onUpdateSuccess }) => {
 
   const dispatch = useDispatch();
 
-  // Error and status variables
+  // Error and status local state variables
   const [ status, setStatus ] = useState("idle");
   const [ error, setError ] = useState(null);
 
@@ -75,7 +81,10 @@ const CustomerUpdateForm = ({ customer, onUpdateSuccess }) => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <label htmlFor="email-update" className={styles.label}>E-mail</label>
+      <label htmlFor="email-update" className={styles.label}>
+        <img src={mailIcon} alt="" className={styles.icon} />
+        E-mail
+      </label>
       <input
         id="email-update"
         className={styles.input}
@@ -85,7 +94,10 @@ const CustomerUpdateForm = ({ customer, onUpdateSuccess }) => {
         onChange={handleInputChange}
         required={true}
       />
-      <label htmlFor="firstName-update" className={styles.label}>First Name</label>
+      <label htmlFor="firstName-update" className={styles.label}>
+        <img src={nameIcon} alt="" className={styles.icon} />
+        First Name
+      </label>
       <input 
         id="firstName-update"
         className={styles.input}
@@ -109,6 +121,7 @@ const CustomerUpdateForm = ({ customer, onUpdateSuccess }) => {
         maxLength="100"
       />
       <label htmlFor="birthDate-update" className={styles.label}>
+        <img src={calendarIcon} alt="" className={styles.icon} />
         Birth Date <span className={styles.labelDescription}>(YYYY-MM-DD)</span>
       </label>
       <input
@@ -121,6 +134,7 @@ const CustomerUpdateForm = ({ customer, onUpdateSuccess }) => {
         required={true}
       />
       <label htmlFor="phone-update" className={styles.label}>
+        <img src={phoneIcon} alt="" className={styles.icon} />
         Phone <span className={styles.labelDescription}>(optional) (include country code)</span>
       </label>
       <input
@@ -132,6 +146,7 @@ const CustomerUpdateForm = ({ customer, onUpdateSuccess }) => {
         onChange={handleInputChange}
       />
       <label htmlFor="password-update" className={styles.label}>
+        <img src={keyIcon} alt="" className={styles.icon} />
         Password <br/><span className={styles.labelDescription}>(8-64 characters, 1+ uppercase letters, symbols and numbers)</span>
       </label>
       <input
@@ -163,7 +178,11 @@ const CustomerUpdateForm = ({ customer, onUpdateSuccess }) => {
         <LoadingSpinner size="8px" />
         :
         <input type="submit" className={styles.button} value="Submit" /> }
-      { error && <p className={styles.errorMessage}>{error}</p> }
+      { error && <p className={styles.errorMessage}>
+                   <img src={errorIcon} alt="Error" className={styles.icon} />
+                   {error}
+                 </p>  
+      }
     </form>
   );
 };

@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import CategoryList from "../category/category-list/CategoryList.js";
 import ProductList from "../product/product-list/ProductList.js";
 import ProductPage from "../product/product-page/ProductPage.js";
+import CustomerNavMenu from "../customer/customer-nav-menu/CustomerNavMenu.js";
 import CustomerIndex from "../customer/customer-index/CustomerIndex.js";
 import CustomerUpdatePage from "../customer/customer-update/CustomerUpdatePage.js";
 import CustomerDeletePage from "../customer/customer-delete/CustomerDeletePage.js";
@@ -23,11 +24,13 @@ const RoutesConfig = () => {
         <Route path="products" element={<ProductList />} />
         <Route path="products/:productName" element={<ProductPage />} />
       </Route>
-      <Route path="/my-account" element={<CustomerIndex />} />
-      <Route path="/my-account/update" element={<CustomerUpdatePage />} />
-      <Route path="/my-account/delete" element={<CustomerDeletePage />} />
-      <Route path="/my-account/orders" element={<OrderHistoryPage />} />
-      <Route path="/my-account/orders/:orderId" element={<OrderPage />} />
+      <Route path="/my-account" element={<CustomerNavMenu />}>
+        <Route index element={<CustomerIndex />} />
+        <Route path="update" element={<CustomerUpdatePage />} />
+        <Route path="delete" element={<CustomerDeletePage />} />
+        <Route path="orders" element={<OrderHistoryPage />} />
+        <Route path="orders/:orderId" element={<OrderPage />} />
+      </Route>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/cart" element={<CartPage />} />
