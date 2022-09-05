@@ -2,31 +2,35 @@
   width: 90%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .linkContainer {
   width: 100%;
   margin: 10px 0;
-  border-bottom: 1px dashed black;
+  border-bottom: 1px dashed #808080;
 }
 
 .linkContainer:last-child {
   border-bottom: none;
+  margin: 10px 0 0 0;
 }
 
 .link {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 1.10rem;
+  font-weight: 400;
   color: #000000;
   text-decoration: underline;
+  transition: font-weight 0.15s ease-in-out;
 }
 
 .link:hover {
-  color: red;
+  font-weight: 700;
 }
 
 .link:active {
-  color: #000000;
+  font-weight: 400;
+  transition: none;
 }
 
 .detailsContainer {
@@ -35,11 +39,18 @@
   justify-content: space-between;
 }
 
-.orderDetails {
+.detailsContainer p {
   margin: 10px 0;
 }
 
 .emptyMessage {
-  margin: 25px 0;
+  margin: 40px 0;
+  font-style: italic;
+}
+
+.icon {
+  position: relative;
+  top: 5px;
+  margin: 0 5px 0 0;
 }
 

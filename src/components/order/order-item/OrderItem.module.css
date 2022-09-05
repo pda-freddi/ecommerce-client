@@ -1,13 +1,36 @@
 .container {
+  width: 100%;
   display: flex;
-  margin: 10px 0;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px dashed #808080;
+}
+
+.container:last-of-type {
+  border-bottom: none;
 }
 
 .thumbnail {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
 }
 
 .textContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productInfo {
+  margin: 0 10px;
+}
+
+.sku {
+  font-size: 0.90rem;
+  font-style: italic;
   margin: 0 10px;
 }

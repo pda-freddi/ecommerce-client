@@ -4,6 +4,7 @@ import { useFeatureState } from "../../../hooks/useFeatureState.js";
 import { getOrders } from "../../../features/orders/ordersSlice.js";
 import EnsureAuthentication from "../../utils/ensure-authentication/EnsureAuthentication.js";
 import LoadingSpinner from "../../utils/loading-spinner/LoadingSpinner.js";
+import ErrorMessage from "../../utils/error-message/ErrorMessage.js";
 import OrdersSummary from "../orders-summary/OrdersSummary.js";
 import styles from "./OrderHistoryPage.module.css";
 
@@ -11,7 +12,7 @@ const OrderHistoryPage = () => {
 
   const dispatch = useDispatch();
 
-  // Get orders state variables from store
+  // Get orders state from the store
   const { orders, status, error } = useFeatureState("orders");
   const shouldRefresh = useSelector(state => state.orders.shouldRefresh);
 
@@ -27,7 +28,7 @@ const OrderHistoryPage = () => {
       <section className={styles.container}>
         <h2 className={styles.title}>Order History</h2>
         { status === "loading" && <LoadingSpinner size="8px" /> }
-        { error && <p className={styles.errorMessage}>{error}</p> }
+        { error && <ErrorMessage message={error} /> }
         { orders && <OrdersSummary orders={orders} /> }
       </section>
     </EnsureAuthentication>

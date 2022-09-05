@@ -12,10 +12,10 @@ const OrderItem = ({ item }) => {
       alt={product.displayName} 
       className={styles.thumbnail} />
       <div className={styles.textContainer}>
-        <p>{product.displayName}</p>
-        <p>SKU: {product.SKU}</p>
-        <p>Price: ${product.price}</p>
-        <p>Quantity: {item.quantity}</p>
+      <p className={styles.productInfo}>{product.displayName}</p>
+        <p className={styles.sku}>SKU: {product.SKU}</p>
+        <p className={styles.productInfo}>Price: ${product.price}</p>
+        <p className={styles.productInfo}>Quantity: {item.quantity}</p>
       </div>
     </article>
   );

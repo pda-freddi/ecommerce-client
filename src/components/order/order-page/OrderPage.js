@@ -5,7 +5,9 @@ import { useFeatureState } from "../../../hooks/useFeatureState.js";
 import { getOrders } from "../../../features/orders/ordersSlice.js";
 import EnsureAuthentication from "../../utils/ensure-authentication/EnsureAuthentication.js";
 import LoadingSpinner from "../../utils/loading-spinner/LoadingSpinner.js";
+import ErrorMessage from "../../utils/error-message/ErrorMessage.js";
 import OrderDetails from "../order-details/OrderDetails.js";
+import BackButton from "../../utils/back-button/BackButton.js";
 import styles from "./OrderPage.module.css";
 
 const OrderPage = () => {
@@ -38,16 +40,17 @@ const OrderPage = () => {
       <section className={styles.container}>
         <h2 className={styles.title}>Order #{orderId}</h2>
         { status === "loading" && <LoadingSpinner size="8px" /> }
-        { error && <p className={styles.errorMessage}>{error}</p> }
+        { error && <ErrorMessage message={error} /> }
         { 
           orders && 
           (
             order ? 
             <OrderDetails order={order} /> 
-            : 
-            <p className={styles.emptyMessage}>No order found!</p>
+            :
+            <ErrorMessage message="Can't find that order!" />
           )
         }
+        <BackButton destination={-1}>Back</BackButton>
       </section>
     </EnsureAuthentication>
   );

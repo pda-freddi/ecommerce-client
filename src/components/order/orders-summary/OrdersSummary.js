@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import BackButton from "../../utils/back-button/BackButton.js";
+import emptyIcon from "../../../icons/empty-box.png";
 import styles from "./OrdersSummary.module.css";
 
 const OrdersSummary = ({ orders }) => {
@@ -14,9 +16,9 @@ const OrdersSummary = ({ orders }) => {
             Order #{order.id}
           </Link>
           <div className={styles.detailsContainer}>
-            <p className={styles.orderDetails}>Date: {new Date(order.createdAt).toLocaleDateString()}</p>
-            <p className={styles.orderDetails}>Status: {order.status}</p>
-            <p className={styles.orderDetails}>Total: ${order.total}</p>
+            <p>Date: {new Date(order.createdAt).toLocaleDateString()}</p>
+            <p>Status: {order.status}</p>
+            <p>Total: ${order.total}</p>
           </div>
         </article>
       );
@@ -24,9 +26,19 @@ const OrdersSummary = ({ orders }) => {
   }
 
   return (
-    <div className={styles.container}>
-    { orderLinks || <p className={styles.emptyMessage}>No orders yet!</p> }
-    </div>
+      <div className={styles.container}>
+        { 
+          orderLinks 
+          ||
+          <>
+            <p className={styles.emptyMessage}>
+              <img src={emptyIcon} alt="" className={styles.icon} />
+              No orders yet!
+            </p>
+            <BackButton destination={-1}>Back</BackButton>
+          </>
+        }
+      </div>
   );
 };
 

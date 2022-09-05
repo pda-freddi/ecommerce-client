@@ -7,21 +7,23 @@
 }
 
 .buttonsContainer {
-  width: 70%;
+  width: 80%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
 }
 
 .button {
-  width: 150px;
+  width: 30%;
+  max-width: 150px;
   height: 35px;
-  margin: 10px 0;
-  font-size: 16px;
-  font-weight: 700;
+  margin: 10px 20px;
+  font-family: Poppins, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
   background-color: #FFFFFF;
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 1px solid #808080;
+  border-radius: 50px;
 }
 
 .button:hover {
@@ -38,9 +40,13 @@
 }
 
 .message {
-  margin: 15px 0 5px 0;
+  margin: 5px 0;
   text-align: center;
   font-style: italic;
+}
+
+.message:first-of-type {
+  margin: 15px 0 5px 0;
 }
 
 .confirmationMessage {
@@ -49,9 +55,13 @@
 }
 
 .errorMessage {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 700;
-  color: #eb1c1c;
+  margin: 10px 0;
+  font-weight: 600;
   text-align: center;
+}
+
+.icon {
+  position: relative;
+  top: 5px;
+  margin: 0 4px 0 0;
 }

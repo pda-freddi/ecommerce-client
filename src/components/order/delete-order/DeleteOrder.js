@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { deleteOrder } from "../../../features/orders/ordersSlice.js";
 import LoadingSpinner from "../../utils/loading-spinner/LoadingSpinner.js";
+import warningIcon from "../../../icons/warning.png";
+import errorIcon from "../../../icons/error.png";
 import styles from "./DeleteOrder.module.css";
 
 const DeleteOrder = ({ orderId }) => {
@@ -51,7 +53,11 @@ const DeleteOrder = ({ orderId }) => {
   return (
     <div className={styles.container}>
       <p className={styles.message}>
-      Pending orders can be canceled without cost. The amount charged in your credit card will be refunded and the order will be deleted from your history. Note that this action is irreversible.
+        Pending orders can be canceled without cost. The amount charged in your credit card will be refunded and the order will be deleted from your history.
+      </p>
+      <p className={styles.message}>
+        <img src={warningIcon} alt="Warning" className={styles.icon} />
+        This action is irreversible.
       </p>
       <p className={styles.confirmationMessage}>
         Are you sure you want to cancel this order?
@@ -71,7 +77,12 @@ const DeleteOrder = ({ orderId }) => {
           </>
         }
       </div>
-      { error && <p className={styles.errorMessage}>{error}</p> }
+      {
+        error && <p className={styles.errorMessage}>
+                   <img src={errorIcon} alt="Error" className={styles.icon} />
+                   {error}
+                 </p> 
+      }
     </div>
   );
 };
