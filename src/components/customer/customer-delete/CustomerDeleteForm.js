@@ -6,7 +6,7 @@ import LoadingSpinner from "../../utils/loading-spinner/LoadingSpinner.js";
 import ErrorMessage from "../../utils/error-message/ErrorMessage.js";
 import styles from "./CustomerDeleteForm.module.css";
 
-const CustomerDeleteForm = ({ onDeleteSuccess }) => {
+const CustomerDeleteForm = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const CustomerDeleteForm = ({ onDeleteSuccess }) => {
       .then(result => {
         setStatus("succeeded");
         setError(null);
-        onDeleteSuccess(true);
+        navigate("/my-account/delete/success", { replace: true });
       })
       .catch(error => {
         setStatus("failed");

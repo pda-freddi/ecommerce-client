@@ -9,6 +9,7 @@ import CustomerUpdatePage from "../customer/customer-update/CustomerUpdatePage.j
 import CustomerDeletePage from "../customer/customer-delete/CustomerDeletePage.js";
 import OrderHistoryPage from "../order/order-history-page/OrderHistoryPage.js";
 import OrderPage from "../order/order-page/OrderPage.js";
+import DeleteSuccess from "../customer/customer-delete/DeleteSuccess.js";
 import LoginPage from "../login/login-page/LoginPage.js";
 import RegisterPage from "../register/register-page/RegisterPage.js";
 import CartPage from "../cart/cart-page/CartPage.js";
@@ -31,6 +32,7 @@ const RoutesConfig = () => {
         <Route path="orders" element={<OrderHistoryPage />} />
         <Route path="orders/:orderId" element={<OrderPage />} />
       </Route>
+      <Route path="/my-account/delete/success" element={<DeleteSuccess />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/cart" element={<CartPage />} />
