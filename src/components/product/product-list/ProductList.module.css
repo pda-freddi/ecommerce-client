@@ -6,6 +6,10 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  padding: 20px;
+  border: 1px solid #808080;
+  border-radius: 10px;
+  background-color: #FFFFFF;
 }
 
 .cardsContainer {
