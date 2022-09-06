@@ -31,33 +31,14 @@ The deployed version can be viewed [here](https://clothes-store-pdafr.netlify.ap
 ## Screenshots
 
 Desktop <br>
-<img src="./docs/screenshots/desktop/desktop-products.jpg" 
-     alt="Products" 
-     width="350px"
-     style="border:1px solid #808080; border-radius: 5px;" />
-<img src="./docs/screenshots/desktop/desktop-cart.jpg" 
-     alt="Shopping Cart" 
-     width="370px"
-     style="border:1px solid #808080; border-radius: 5px;" />
+<img src="./docs/screenshots/desktop/desktop-products.jpg" alt="Products" width="450px" />
+<img src="./docs/screenshots/desktop/desktop-cart.jpg" alt="Shopping Cart" width="470px" />
 
 
 Mobile <br>
-<img src="./docs/screenshots/mobile/mobile-products.jpg" 
-     alt="Products" 
-     height="300px"
-     style="border:1px solid #808080; border-radius: 5px;" />
-<img src="./docs/screenshots/mobile/mobile-cart.jpg" 
-     alt="Shopping Cart" 
-     height="300px"
-     style="border:1px solid #808080; border-radius: 5px;" />
-<img src="./docs/screenshots/mobile/mobile-register.jpg" 
-     alt="Register" 
-     height="300px"
-     style="border:1px solid #808080; border-radius: 5px;" />
-<img src="./docs/screenshots/mobile/mobile-customer-profile.jpg" 
-     alt="Account Area" 
-     height="300px"
-     style="border:1px solid #808080; border-radius: 5px;" />
+<img src="./docs/screenshots/mobile/mobile-products.jpg" alt="Products" height="550px" />
+<img src="./docs/screenshots/mobile/mobile-cart.jpg" alt="Shopping Cart" height="550px" />
+<img src="./docs/screenshots/mobile/mobile-customer-profile.jpg" alt="Account Area" height="550px" />
 
 More screenshots of [desktop](./docs/screenshots/desktop) and [mobile](./docs/screenshots/mobile) views are available.
 
