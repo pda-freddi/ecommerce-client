@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/460763cd-520c-4cea-8f36-7bf7dafa67ce/deploy-status)](https://app.netlify.com/sites/clothes-store-pdafr/deploys)
+
 # E-commerce Client
 
 This project was built for Codecademy's Full Stack Engineering Path.
