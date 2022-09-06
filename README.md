@@ -1,46 +1,48 @@
-# Getting Started with Create React App and Redux
+# E-commerce Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+This project was built for Codecademy's Full Stack Engineering Path.
 
-## Available Scripts
+It is a follow-up on the [E-commerce RESTful API](https://github.com/Pedro-Freddi/ecommerce-api) project, with the goal of designing a user interface that communicates with the API. The result is a client-side rendered clothing e-commerce website named "Clothes Store" (very creative).
 
-In the project directory, you can run:
+The project's plan can be found in the [docs folder](./docs).
 
-### `npm start`
+The deployed version can be viewed [here](https://www.netlify.com/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* React v18.2.0
+* Redux Toolkit v1.8.3
+* React Router v6.3.0
+* CSS Modules
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Categories and products browsing.
+* Search feature to find products by name.
+* Account registration and login/logout.
+* Account area to manage information and orders.
+* Shopping cart with add/update/delete features.
+* Cart checkout and order creation.
+* Simple UI with flat design and soft colors.
+* Responsive layout that adapts to all screen sizes.
 
-### `npm run build`
+## Screenshots
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Desktop <br>
+<img src="./docs/screenshots/desktop/desktop-products.jpg" alt="Products" width="350px" />
+<img src="./docs/screenshots/desktop/desktop-cart.jpg" alt="Shopping Cart" width="370px" />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Mobile <br>
+<img src="./docs/screenshots/mobile/mobile-products.jpg" alt="Products" height="300px" />
+<img src="./docs/screenshots/mobile/mobile-cart.jpg" alt="Shopping Cart" height="300px" />
+<img src="./docs/screenshots/mobile/mobile-register.jpg" alt="Register" height="300px" />
+<img src="./docs/screenshots/mobile/mobile-customer-profile.jpg" alt="Account Area" height="300px" />
 
-### `npm run eject`
+More screenshots of [desktop](./docs/screenshots/desktop) and [mobile](./docs/screenshots/mobile) views are available.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Acknowledgements
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Icons from [freeicons.io](https://freeicons.io/) and [Google Material Symbols](https://fonts.google.com/icons).
+* Loading animations from the [React Spinners](https://www.davidhu.io/react-spinners/) library.
+* Products pictures from [Unsplash](https://unsplash.com/).
