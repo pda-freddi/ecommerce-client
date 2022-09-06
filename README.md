@@ -31,8 +31,8 @@ The deployed version can be viewed [here](https://clothes-store-pdafr.netlify.ap
 ## Screenshots
 
 Desktop <br>
-<img src="./docs/screenshots/desktop/desktop-products.jpg" alt="Products" width="450px" />
-<img src="./docs/screenshots/desktop/desktop-cart.jpg" alt="Shopping Cart" width="470px" />
+<img src="./docs/screenshots/desktop/desktop-products.jpg" alt="Products" width="500px" />
+<img src="./docs/screenshots/desktop/desktop-cart.jpg" alt="Shopping Cart" width="500px" />
 
 
 Mobile <br>
