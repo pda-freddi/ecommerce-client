@@ -20,6 +20,8 @@ const EnsureAuthentication = ({ children, showMessage }) => {
         navigate("/login", { state: { from: location }, replace: true })
       }, 3000);
       return () => clearTimeout(timerId);
+    } else if (!isAuthenticated) {
+      return navigate("/login", { state: { from: location }, replace: true });
     }
   });
 
@@ -35,8 +37,6 @@ const EnsureAuthentication = ({ children, showMessage }) => {
         <ClipLoader />
       </section>
     );
-  } else if (!isAuthenticated) {
-    return navigate("/login", { state: { from: location }, replace: true });
   }
 
   return children;
