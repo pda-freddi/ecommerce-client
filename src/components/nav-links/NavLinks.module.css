@@ -22,3 +22,14 @@
   height: 24px;
   margin: 0 2px 0 0;
 }
+
+@media screen and (max-width: 650px) {
+  .link {
+    font-size: 0.90rem;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -18,3 +18,15 @@
 .message {
   margin: 10px 0;
 }
+
+@media screen and (max-width: 600px) {
+  .title {
+    margin: 10px;
+    font-size: 1.25rem;
+  }
+
+  .message {
+    font-size: 0.90rem;
+    text-align: center;
+  }
+}

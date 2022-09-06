@@ -55,3 +55,32 @@
   background-color: #FFFFFF;
   transition: none;
 }
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 95%;
+    min-height: 200px;
+    padding: 10px;
+  }
+  
+  .title {
+    font-size: 1.25rem;
+  }
+  
+  .message {
+    font-size: 0.90rem;
+  }
+  
+  .icon {
+    width: 20px;
+    height: 20px;
+    top: 3px;
+    margin: 0 3px 0 0;
+  }
+  
+  .link {
+    width: 150px;
+    height: 30px;
+    font-size: 0.90rem;
+  }
+}

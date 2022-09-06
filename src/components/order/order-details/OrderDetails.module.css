@@ -28,3 +28,22 @@
 .addressContainer p:first-of-type {
   margin-top: 0;
 }
+
+@media screen and (max-width: 800px) {
+  .container {
+    width: 95%;
+  }
+
+  .container h3 {
+    font-size: 1.10rem;
+  }
+
+  .detailsContainer p {
+    margin: 0 5px;
+    font-size: 0.90rem;
+  }
+
+  .addressContainer p {
+    font-size: 0.90rem;
+  }
+}

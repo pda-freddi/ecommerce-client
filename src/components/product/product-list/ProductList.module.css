@@ -40,3 +40,24 @@
   font-weight: 400;
   font-style: normal;
 }
+
+@media screen and (max-width: 680px) {
+  .message {
+    font-size: 0.90rem;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 90%;
+  }
+
+  .title {
+    font-size: 1.10rem;
+  }
+
+  .searchTitle {
+    font-size: 1.10rem;
+  }
+}

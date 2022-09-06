@@ -21,3 +21,23 @@
   top: 5px;
   margin: 0 4px 0 0;
 }
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 95%;
+    margin: 5px 0;
+  }
+
+  .title {
+    font-size: 1.10rem;
+  }
+
+  .text {
+    font-size: 0.90rem;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -16,3 +16,15 @@
   margin: 5px 0;
   font-weight: 600;
 }
+
+@media screen and (max-width: 800px) {
+  .container {
+    width: 95%;
+    padding: 10px;
+    min-height: 100px;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+}

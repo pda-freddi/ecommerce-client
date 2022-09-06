@@ -44,10 +44,12 @@
 .input {
   width: 40px;
   height: 25px;
+  margin: 5px 5px 10px 5px;
   text-align: center;
   font-family: Poppins, sans-serif;
   font-size: 1rem;
-  margin: 5px 5px 10px 5px;
+  border: 1px solid #808080;
+  border-radius: 5px;
 }
 
 .submitButton {
@@ -105,4 +107,30 @@
 .link:active {
   font-weight: 400;
   transition: none;
+}
+
+@media screen and (max-width: 700px) {
+  .submitButtonWithIcon {
+    height: 30px;
+    margin: 10px 0;
+    font-size: 0.85rem;
+  }
+
+  .label {
+    margin: 5px 0 0 0;
+    font-size: 0.90rem;
+  }
+
+  .input {
+    width: 35px;
+    font-size: 0.90rem;
+    border-radius: 5px;
+  }
+  
+  .submitButton {
+    width: 110px;
+    height: 30px;
+    margin: 0 0 10px 0;
+    font-size: 0.90rem;
+  }
 }

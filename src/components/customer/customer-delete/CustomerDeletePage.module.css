@@ -31,3 +31,42 @@
   font-weight: 600;
   text-decoration: underline
 }
+
+@media screen and (max-width: 880px) {
+  .container p {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .container {
+    padding: 20px 10px 10px 10px;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .message {
+    font-size: 0.90rem;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    top: 3px;
+    margin: 0 3px 0 0;
+  }
+  
+  .confirmationMessage {
+    margin: 20px 0;
+    font-size: 0.90rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+}

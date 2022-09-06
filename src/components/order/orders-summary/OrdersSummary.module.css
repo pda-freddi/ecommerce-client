@@ -54,3 +54,28 @@
   margin: 0 5px 0 0;
 }
 
+@media screen and (max-width: 800px) {
+  .container {
+    width: 95%;
+  }
+
+  .link {
+    font-size: 1rem;
+  }
+
+  .detailsContainer p {
+    margin: 10px 5px;
+    font-size: 0.90rem;
+  }
+
+  .emptyMessage {
+    font-size: 0.90rem;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    top: 3px;
+    margin: 0 3px 0 0;
+  }
+}

@@ -27,3 +27,25 @@
   top: 5px;
   margin: 0 4px 0 0;
 }
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+  
+  .title {
+    font-size: 1.25rem;
+  }
+  
+  .successMessage {
+    font-size: 1.15rem;
+    margin: 10px 0;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    top: 3px;
+  }
+}

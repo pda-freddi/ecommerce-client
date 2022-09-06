@@ -38,3 +38,45 @@
   top: 5px;
   margin: 0 4px 0 0;
 }
+
+@media screen and (max-width: 870px) {
+  .dataContainer {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .dataContainer {
+    margin: 10px 0 0 0;
+  }
+  
+  .image {
+    width: 150px;
+    height: 150px;
+    margin: 0 0 10px 0;
+  }
+  
+  .data {
+    margin: 10px 0;
+    font-size: 0.90rem;
+  }
+  
+  .icon {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 5px;
+    margin: 0 3px 0 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+}

@@ -26,3 +26,25 @@
   background-color: #FFFFFF;
   transition: none;
 }
+
+@media screen and (max-width: 780px) {
+  .container {
+    margin: 10px 0;
+  }
+
+  .button {
+    width: 120px;
+    margin: 0 5px;
+    font-size: 0.90rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .container {
+    margin: 5px 0;
+  }
+
+  .button {
+    width: 90px;
+  }
+}

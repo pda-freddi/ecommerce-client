@@ -30,7 +30,7 @@ const LoginPage = () => {
   // Render message for a successful authentication
   if (isAuthenticated) {
     return (
-    <section className={styles.section}>
+    <section className={styles.container}>
       <p className={styles.successMessage}>Login successful!</p>
       <p className={styles.redirectMessage}>Redirecting...</p>
       <ClipLoader />
@@ -40,7 +40,7 @@ const LoginPage = () => {
 
   // Render login form if not authenticated
   return (
-    <section className={styles.section}>
+    <section className={styles.container}>
       <h2 className={styles.title}>Log in to your account</h2>
       <LoginForm />
       <p className={styles.registerMessage}>

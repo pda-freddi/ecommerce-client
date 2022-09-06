@@ -26,3 +26,25 @@
   margin: 0;
 }
 
+@media screen and (max-width: 730px) {
+  .container {
+    width: 100%;
+  }
+
+  .emptyMessage {
+    font-size: 0.90rem;
+  }
+
+  .total {
+    font-size: 0.90rem;
+  }
+
+  .shipping {
+    font-size: 0.90rem;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -65,3 +65,28 @@
   top: 5px;
   margin: 0 4px 0 0;
 }
+
+@media screen and (max-width: 800px) {
+  .button {
+    width: 130px;
+    height: 35px;
+    margin: 10px 20px;
+    font-size: 0.90rem;
+  }
+
+  .container p {
+    font-size: 0.90rem;
+    text-align: center;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .button {
+    margin: 5px 10px;
+  }
+}

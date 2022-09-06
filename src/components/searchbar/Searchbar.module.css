@@ -63,9 +63,29 @@
   height: 24px;
 }
 
-/* @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .form {
     max-width: 100%;
-    margin: 0 10px;
+    margin: 5px 10px;
+    padding: 0;
   }
-} */
+
+  .label {
+    height: 25px;
+  }
+
+  .searchIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .input {
+    height: 25px;
+    font-size: 0.90rem;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+}

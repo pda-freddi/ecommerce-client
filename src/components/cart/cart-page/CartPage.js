@@ -27,7 +27,7 @@ const CartPage = () => {
   }, [dispatch, cart, shouldRefresh]);
 
   return (
-    <EnsureAuthentication showMessage={true}>
+    <EnsureAuthentication showMessage={false}>
       <section className={styles.container}>
         <h2 className={styles.title}>Your Shopping Cart</h2>
         { status === "loading" && <LoadingSpinner size="8px" /> }

@@ -25,11 +25,50 @@
 .logo {
   width: 32px;
   height: 32px;
-  margin: 0 2px 0 0;
+  margin: 0 2px;
 }
 
 .gitHubLogo {
   width: 32px;
   height: 32px;
   margin: 0 10px 0 0;
+}
+
+@media screen and (max-width: 905px) {
+  .homeLink {
+    font-size: 1.20rem;
+    align-items: flex-start;
+  }
+
+  .logo {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media screen and (max-width: 855px) {
+  .gitHubLogo {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    top: 3px;
+  }
+
+  .homeLink span {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    flex-wrap: wrap;
+  }
+
+  .homeLink {
+    margin: 5px 10px 0 0;
+  }
+
+  .homeLink span {
+    display: inline;
+  }
 }

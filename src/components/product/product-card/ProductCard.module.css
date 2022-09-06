@@ -49,3 +49,19 @@
   margin: 23px;
   color: red;
 }
+
+@media screen and (max-width: 680px) {
+  .title {
+    font-size: 1.10rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    min-height: 330px;
+  }
+
+  .container p {
+    font-size: 0.90rem;
+  }
+}

@@ -44,3 +44,32 @@
   font-weight: 400;
   transition: none;
 }
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 90%;
+    margin: 0 0 15px 0;
+    padding: 0 20px;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .title {
+    font-size: 1.10rem;
+  }
+
+  .linksContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .link {
+    margin: 5px 10px;
+    font-size: 0.90rem;
+  }
+}

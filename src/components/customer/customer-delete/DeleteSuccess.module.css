@@ -11,11 +11,26 @@
 }
 
 .successMessage {
-  font-size: 20px;
+  font-size: 1.15rem;
   font-weight: 600;
   margin: 20px 0;
 }
 
 .redirectMessage {
   margin: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .successMessage {
+    font-size: 1.10rem;
+  }
+
+  .redirectMessage {
+    font-size: 0.90rem;
+  }
 }

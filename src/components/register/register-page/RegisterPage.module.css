@@ -43,3 +43,27 @@
   font-weight: 400;
   transition: none;
 }
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+  
+  .title {
+    font-size: 1.25rem;
+  }
+  
+  .successMessage {
+    font-size: 1.15rem;
+    margin: 10px 0;
+  }
+  
+  .redirectMessage {
+    font-size: 0.90rem;
+  }
+  
+  .loginMessage {
+    font-size: 0.90rem;
+  }
+}
