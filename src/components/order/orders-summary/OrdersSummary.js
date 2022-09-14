@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BackButton from "../../utils/back-button/BackButton.js";
 import emptyIcon from "../../../icons/empty-box.png";
 import styles from "./OrdersSummary.module.css";
 
@@ -30,13 +29,10 @@ const OrdersSummary = ({ orders }) => {
         { 
           orderLinks 
           ||
-          <>
-            <p className={styles.emptyMessage}>
-              <img src={emptyIcon} alt="" className={styles.icon} />
-              No orders yet!
-            </p>
-            <BackButton destination={-1}>Back</BackButton>
-          </>
+          <p className={styles.emptyMessage}>
+            <img src={emptyIcon} alt="" className={styles.icon} />
+            No orders yet!
+          </p>
         }
       </div>
   );
