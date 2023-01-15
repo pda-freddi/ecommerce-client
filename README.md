@@ -2,9 +2,7 @@
 
 # E-commerce Client
 
-This project was built for Codecademy's Full Stack Engineering Path.
-
-It is a follow-up on the [E-commerce RESTful API](https://github.com/Pedro-Freddi/ecommerce-api) project, with the goal of designing a user interface that communicates with the API. The result is a client-side rendered clothing e-commerce website named "Clothes Store" (very creative).
+This project is a follow-up on the [E-commerce RESTful API](https://github.com/Pedro-Freddi/ecommerce-api) project, with the goal of designing a user interface that communicates with the API. The result is a client-side rendered clothing e-commerce website named "Clothes Store" (very creative).
 
 The project's plan can be found in the [docs folder](./docs).
 
