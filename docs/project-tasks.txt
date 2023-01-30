@@ -1,0 +1,14 @@
+Start date: 10/08/2022
+
+Tasks:
+
+- Initialize project with create-react-app and redux template. --OK (10/08)
+- Setup a GitHub repository and sync with the local git repository. --OK (10/08)
+- Perform basic initial configuration (package.json, boilerplate cleanup, file structure and public assets). --OK (10/08)
+- Write API client to fetch resources. --OK (16/08)
+- Write Redux slice logic for each feature of the app. --OK (17/08)
+- Write and style components. --OK (06/08)
+- Adjust styles to make the website's design fully responsive. --OK (06/08)
+- Deploy: change hardcoded values for URLs and configure the back-end for CORS --OK (06/09)
+
+Project finished: 06/09/2022.
